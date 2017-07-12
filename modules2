@@ -1,0 +1,16 @@
+module swap PE-intel PE-gnu
+module unload gcc/4.8.2
+module load gcc/6.2.0
+module load flexpath
+module load python
+module load dataspaces
+module load adios
+module load szip
+module load tbb
+module load cudatoolkit
+module load fastbit
+module load boost
+module load alacrity
+module load hdf5
+module load libpng
+module load cmake/3.6.1

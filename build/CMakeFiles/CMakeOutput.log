@@ -1,0 +1,1104 @@
+The system is: Linux - 2.6.32-642.6.2.el6.x86_64 - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc 
+Build flags: -g;-O3
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/3.5.2/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++ 
+Build flags: -g;-O3
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/3.5.2/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_92c91/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_92c91.dir/build.make CMakeFiles/cmTC_92c91.dir/build
+gmake[1]: Entering directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_92c91.dir/testCCompiler.c.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc    -g -O3    -o CMakeFiles/cmTC_92c91.dir/testCCompiler.c.o   -c /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_92c91
+/autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_92c91.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc  -g -O3     CMakeFiles/cmTC_92c91.dir/testCCompiler.c.o  -o cmTC_92c91 -rdynamic 
+gmake[1]: Leaving directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_864d7/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_864d7.dir/build.make CMakeFiles/cmTC_864d7.dir/build
+gmake[1]: Entering directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_864d7.dir/CMakeCCompilerABI.c.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc    -g -O3    -o CMakeFiles/cmTC_864d7.dir/CMakeCCompilerABI.c.o   -c /autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/share/cmake-3.5/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_864d7
+/autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_864d7.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc  -g -O3    -v CMakeFiles/cmTC_864d7.dir/CMakeCCompilerABI.c.o  -o cmTC_864d7 -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc
+COLLECT_LTO_WRAPPER=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/lto-wrapper
+Target: x86_64-redhat-linux
+Configured with: ../gcc-6.2.0/configure --build=x86_64-redhat-linux --prefix=/ccs/compilers/gcc/rhel6-x86_64/6.2.0 --libdir=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-gmp-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-gmp-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-mpfr-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-mpfr-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-mpc-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-mpc-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-isl-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-isl-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64
+Thread model: posix
+gcc version 6.2.0 (GCC) 
+COMPILER_PATH=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/
+LIBRARY_PATH=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-g' '-O3' '-v' '-o' 'cmTC_864d7' '-rdynamic' '-mtune=generic' '-march=x86-64'
+ /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/collect2 --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_864d7 /usr/lib/../lib64/crt1.o /usr/lib/../lib64/crti.o /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtbegin.o -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0 -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../.. CMakeFiles/cmTC_864d7.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtend.o /usr/lib/../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-g' '-O3' '-v' '-o' 'cmTC_864d7' '-rdynamic' '-mtune=generic' '-march=x86-64'
+gmake[1]: Leaving directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_864d7/fast"]
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_864d7.dir/build.make CMakeFiles/cmTC_864d7.dir/build]
+  ignore line: [gmake[1]: Entering directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_864d7.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc    -g -O3    -o CMakeFiles/cmTC_864d7.dir/CMakeCCompilerABI.c.o   -c /autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/share/cmake-3.5/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_864d7]
+  ignore line: [/autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_864d7.dir/link.txt --verbose=1]
+  ignore line: [/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc  -g -O3    -v CMakeFiles/cmTC_864d7.dir/CMakeCCompilerABI.c.o  -o cmTC_864d7 -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/lto-wrapper]
+  ignore line: [Target: x86_64-redhat-linux]
+  ignore line: [Configured with: ../gcc-6.2.0/configure --build=x86_64-redhat-linux --prefix=/ccs/compilers/gcc/rhel6-x86_64/6.2.0 --libdir=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-gmp-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-gmp-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-mpfr-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-mpfr-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-mpc-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-mpc-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-isl-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-isl-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 6.2.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/]
+  ignore line: [LIBRARY_PATH=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-g' '-O3' '-v' '-o' 'cmTC_864d7' '-rdynamic' '-mtune=generic' '-march=x86-64']
+  link line: [ /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/collect2 --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_864d7 /usr/lib/../lib64/crt1.o /usr/lib/../lib64/crti.o /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtbegin.o -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0 -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../.. CMakeFiles/cmTC_864d7.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtend.o /usr/lib/../lib64/crtn.o]
+    arg [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/collect2] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_864d7] ==> ignore
+    arg [/usr/lib/../lib64/crt1.o] ==> ignore
+    arg [/usr/lib/../lib64/crti.o] ==> ignore
+    arg [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtbegin.o] ==> ignore
+    arg [-L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0] ==> dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0]
+    arg [-L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc] ==> dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc]
+    arg [-L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64] ==> dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../..] ==> dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../..]
+    arg [CMakeFiles/cmTC_864d7.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtend.o] ==> ignore
+    arg [/usr/lib/../lib64/crtn.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  collapse library dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0] ==> [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64/gcc/x86_64-redhat-linux/6.2.0]
+  collapse library dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc] ==> [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64/gcc]
+  collapse library dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64] ==> [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../..] ==> [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64]
+  implicit libs: [c]
+  implicit dirs: [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64/gcc/x86_64-redhat-linux/6.2.0;/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64/gcc;/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64;/lib64;/usr/lib64]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_891fa/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_891fa.dir/build.make CMakeFiles/cmTC_891fa.dir/build
+gmake[1]: Entering directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_891fa.dir/feature_tests.c.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc    -g -O3    -std=c11 -o CMakeFiles/cmTC_891fa.dir/feature_tests.c.o   -c /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_891fa
+/autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_891fa.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc  -g -O3     CMakeFiles/cmTC_891fa.dir/feature_tests.c.o  -o cmTC_891fa -rdynamic 
+gmake[1]: Leaving directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_2f9cb/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_2f9cb.dir/build.make CMakeFiles/cmTC_2f9cb.dir/build
+gmake[1]: Entering directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2f9cb.dir/feature_tests.c.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc    -g -O3    -std=c99 -o CMakeFiles/cmTC_2f9cb.dir/feature_tests.c.o   -c /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_2f9cb
+/autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2f9cb.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc  -g -O3     CMakeFiles/cmTC_2f9cb.dir/feature_tests.c.o  -o cmTC_2f9cb -rdynamic 
+gmake[1]: Leaving directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_a76df/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_a76df.dir/build.make CMakeFiles/cmTC_a76df.dir/build
+gmake[1]: Entering directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a76df.dir/feature_tests.c.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc    -g -O3    -std=c90 -o CMakeFiles/cmTC_a76df.dir/feature_tests.c.o   -c /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_a76df
+/autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a76df.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc  -g -O3     CMakeFiles/cmTC_a76df.dir/feature_tests.c.o  -o cmTC_a76df -rdynamic 
+gmake[1]: Leaving directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_ba8da/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_ba8da.dir/build.make CMakeFiles/cmTC_ba8da.dir/build
+gmake[1]: Entering directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ba8da.dir/testCXXCompiler.cxx.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++     -g -O3    -o CMakeFiles/cmTC_ba8da.dir/testCXXCompiler.cxx.o -c /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_ba8da
+/autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ba8da.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++   -g -O3     CMakeFiles/cmTC_ba8da.dir/testCXXCompiler.cxx.o  -o cmTC_ba8da -rdynamic 
+gmake[1]: Leaving directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_0240f/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_0240f.dir/build.make CMakeFiles/cmTC_0240f.dir/build
+gmake[1]: Entering directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_0240f.dir/CMakeCXXCompilerABI.cpp.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++     -g -O3    -o CMakeFiles/cmTC_0240f.dir/CMakeCXXCompilerABI.cpp.o -c /autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_0240f
+/autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0240f.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++   -g -O3    -v CMakeFiles/cmTC_0240f.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_0240f -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++
+COLLECT_LTO_WRAPPER=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/lto-wrapper
+Target: x86_64-redhat-linux
+Configured with: ../gcc-6.2.0/configure --build=x86_64-redhat-linux --prefix=/ccs/compilers/gcc/rhel6-x86_64/6.2.0 --libdir=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-gmp-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-gmp-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-mpfr-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-mpfr-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-mpc-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-mpc-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-isl-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-isl-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64
+Thread model: posix
+gcc version 6.2.0 (GCC) 
+COMPILER_PATH=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/
+LIBRARY_PATH=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-g' '-O3' '-v' '-o' 'cmTC_0240f' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/collect2 --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_0240f /usr/lib/../lib64/crt1.o /usr/lib/../lib64/crti.o /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtbegin.o -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0 -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../.. CMakeFiles/cmTC_0240f.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtend.o /usr/lib/../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-g' '-O3' '-v' '-o' 'cmTC_0240f' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+gmake[1]: Leaving directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_0240f/fast"]
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_0240f.dir/build.make CMakeFiles/cmTC_0240f.dir/build]
+  ignore line: [gmake[1]: Entering directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_0240f.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++     -g -O3    -o CMakeFiles/cmTC_0240f.dir/CMakeCXXCompilerABI.cpp.o -c /autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_0240f]
+  ignore line: [/autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0240f.dir/link.txt --verbose=1]
+  ignore line: [/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++   -g -O3    -v CMakeFiles/cmTC_0240f.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_0240f -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/lto-wrapper]
+  ignore line: [Target: x86_64-redhat-linux]
+  ignore line: [Configured with: ../gcc-6.2.0/configure --build=x86_64-redhat-linux --prefix=/ccs/compilers/gcc/rhel6-x86_64/6.2.0 --libdir=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-gmp-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-gmp-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-mpfr-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-mpfr-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-mpc-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-mpc-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-isl-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-isl-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 6.2.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/]
+  ignore line: [LIBRARY_PATH=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-g' '-O3' '-v' '-o' 'cmTC_0240f' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/collect2 --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_0240f /usr/lib/../lib64/crt1.o /usr/lib/../lib64/crti.o /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtbegin.o -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0 -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../.. CMakeFiles/cmTC_0240f.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtend.o /usr/lib/../lib64/crtn.o]
+    arg [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/collect2] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_0240f] ==> ignore
+    arg [/usr/lib/../lib64/crt1.o] ==> ignore
+    arg [/usr/lib/../lib64/crti.o] ==> ignore
+    arg [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtbegin.o] ==> ignore
+    arg [-L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0] ==> dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0]
+    arg [-L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc] ==> dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc]
+    arg [-L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64] ==> dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../..] ==> dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../..]
+    arg [CMakeFiles/cmTC_0240f.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtend.o] ==> ignore
+    arg [/usr/lib/../lib64/crtn.o] ==> ignore
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  collapse library dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0] ==> [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64/gcc/x86_64-redhat-linux/6.2.0]
+  collapse library dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc] ==> [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64/gcc]
+  collapse library dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64] ==> [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../..] ==> [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64]
+  implicit libs: [stdc++;m;c]
+  implicit dirs: [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64/gcc/x86_64-redhat-linux/6.2.0;/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64/gcc;/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64;/lib64;/usr/lib64]
+  implicit fwks: []
+
+
+
+
+Detecting CXX [-std=c++14] compiler features compiled with the following output:
+Change Dir: /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_c444b/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_c444b.dir/build.make CMakeFiles/cmTC_c444b.dir/build
+gmake[1]: Entering directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c444b.dir/feature_tests.cxx.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++     -g -O3    -std=c++14 -o CMakeFiles/cmTC_c444b.dir/feature_tests.cxx.o -c /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_c444b
+/autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c444b.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++   -g -O3     CMakeFiles/cmTC_c444b.dir/feature_tests.cxx.o  -o cmTC_c444b -rdynamic 
+gmake[1]: Leaving directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++11] compiler features compiled with the following output:
+Change Dir: /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_bb12e/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_bb12e.dir/build.make CMakeFiles/cmTC_bb12e.dir/build
+gmake[1]: Entering directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_bb12e.dir/feature_tests.cxx.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++     -g -O3    -std=c++11 -o CMakeFiles/cmTC_bb12e.dir/feature_tests.cxx.o -c /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_bb12e
+/autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bb12e.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++   -g -O3     CMakeFiles/cmTC_bb12e.dir/feature_tests.cxx.o  -o cmTC_bb12e -rdynamic 
+gmake[1]: Leaving directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++98] compiler features compiled with the following output:
+Change Dir: /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_8c8f0/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_8c8f0.dir/build.make CMakeFiles/cmTC_8c8f0.dir/build
+gmake[1]: Entering directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_8c8f0.dir/feature_tests.cxx.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++     -g -O3    -std=c++98 -o CMakeFiles/cmTC_8c8f0.dir/feature_tests.cxx.o -c /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_8c8f0
+/autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8c8f0.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++   -g -O3     CMakeFiles/cmTC_8c8f0.dir/feature_tests.cxx.o  -o cmTC_8c8f0 -rdynamic 
+gmake[1]: Leaving directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:0cxx_alias_templates
+    Feature record: CXX_FEATURE:0cxx_alignas
+    Feature record: CXX_FEATURE:0cxx_alignof
+    Feature record: CXX_FEATURE:0cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:0cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:0cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:0cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:0cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:0cxx_default_function_template_args
+    Feature record: CXX_FEATURE:0cxx_defaulted_functions
+    Feature record: CXX_FEATURE:0cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:0cxx_delegating_constructors
+    Feature record: CXX_FEATURE:0cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:0cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:0cxx_explicit_conversions
+    Feature record: CXX_FEATURE:0cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:0cxx_extern_templates
+    Feature record: CXX_FEATURE:0cxx_final
+    Feature record: CXX_FEATURE:0cxx_func_identifier
+    Feature record: CXX_FEATURE:0cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:0cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:0cxx_inline_namespaces
+    Feature record: CXX_FEATURE:0cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:0cxx_local_type_template_args
+    Feature record: CXX_FEATURE:0cxx_long_long_type
+    Feature record: CXX_FEATURE:0cxx_noexcept
+    Feature record: CXX_FEATURE:0cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:0cxx_nullptr
+    Feature record: CXX_FEATURE:0cxx_override
+    Feature record: CXX_FEATURE:0cxx_range_for
+    Feature record: CXX_FEATURE:0cxx_raw_string_literals
+    Feature record: CXX_FEATURE:0cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:0cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:0cxx_rvalue_references
+    Feature record: CXX_FEATURE:0cxx_sizeof_member
+    Feature record: CXX_FEATURE:0cxx_static_assert
+    Feature record: CXX_FEATURE:0cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:0cxx_thread_local
+    Feature record: CXX_FEATURE:0cxx_trailing_return_types
+    Feature record: CXX_FEATURE:0cxx_unicode_literals
+    Feature record: CXX_FEATURE:0cxx_uniform_initialization
+    Feature record: CXX_FEATURE:0cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:0cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:0cxx_variadic_macros
+    Feature record: CXX_FEATURE:0cxx_variadic_templates
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_01bfc/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_01bfc.dir/build.make CMakeFiles/cmTC_01bfc.dir/build
+gmake[1]: Entering directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_01bfc.dir/CheckIncludeFile.c.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc    -g -O3  -fPIE   -o CMakeFiles/cmTC_01bfc.dir/CheckIncludeFile.c.o   -c /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_01bfc
+/autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_01bfc.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc  -g -O3     CMakeFiles/cmTC_01bfc.dir/CheckIncludeFile.c.o  -o cmTC_01bfc -rdynamic 
+gmake[1]: Leaving directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_fbc29/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_fbc29.dir/build.make CMakeFiles/cmTC_fbc29.dir/build
+gmake[1]: Entering directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fbc29.dir/CheckFunctionExists.c.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc    -g -O3 -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE   -o CMakeFiles/cmTC_fbc29.dir/CheckFunctionExists.c.o   -c /autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_fbc29
+/autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fbc29.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc  -g -O3 -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_fbc29.dir/CheckFunctionExists.c.o  -o cmTC_fbc29 -rdynamic -lpthread 
+gmake[1]: Leaving directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_03efb/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_03efb.dir/build.make CMakeFiles/cmTC_03efb.dir/build
+gmake[1]: Entering directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_03efb.dir/CheckIncludeFile.c.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc    -g -O3  -fPIE   -o CMakeFiles/cmTC_03efb.dir/CheckIncludeFile.c.o   -c /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_03efb
+/autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_03efb.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc  -g -O3     CMakeFiles/cmTC_03efb.dir/CheckIncludeFile.c.o  -o cmTC_03efb -rdynamic 
+gmake[1]: Leaving directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_4b921/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_4b921.dir/build.make CMakeFiles/cmTC_4b921.dir/build
+gmake[1]: Entering directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4b921.dir/CheckFunctionExists.c.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc    -g -O3 -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE   -o CMakeFiles/cmTC_4b921.dir/CheckFunctionExists.c.o   -c /autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_4b921
+/autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4b921.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc  -g -O3 -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_4b921.dir/CheckFunctionExists.c.o  -o cmTC_4b921 -rdynamic -lpthread 
+gmake[1]: Leaving directory `/lustre/atlas2/csc094/scratch/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+The system is: Linux - 2.6.32-696.3.2.el6.x86_64 - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc 
+Build flags: -g;-O3
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/ccs/home/nic8504/rhea/alpine/build/CMakeFiles/3.6.1/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++ 
+Build flags: -g;-O3
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/ccs/home/nic8504/rhea/alpine/build/CMakeFiles/3.6.1/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /ccs/home/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_f09f7/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_f09f7.dir/build.make CMakeFiles/cmTC_f09f7.dir/build
+gmake[1]: Entering directory `/autofs/nccs-svm1_home1/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f09f7.dir/testCCompiler.c.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc    -g -O3    -o CMakeFiles/cmTC_f09f7.dir/testCCompiler.c.o   -c /ccs/home/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_f09f7
+/autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20170224/linux-rhel6-x86_64/gcc-4.4.7/cmake-3.6.1-2ihz7qgwklvemtqu7wzpdfbt3eog6sqh/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f09f7.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc  -g -O3     CMakeFiles/cmTC_f09f7.dir/testCCompiler.c.o  -o cmTC_f09f7 -rdynamic 
+gmake[1]: Leaving directory `/autofs/nccs-svm1_home1/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /ccs/home/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_b9da6/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_b9da6.dir/build.make CMakeFiles/cmTC_b9da6.dir/build
+gmake[1]: Entering directory `/autofs/nccs-svm1_home1/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b9da6.dir/CMakeCCompilerABI.c.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc    -g -O3    -o CMakeFiles/cmTC_b9da6.dir/CMakeCCompilerABI.c.o   -c /autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20170224/linux-rhel6-x86_64/gcc-4.4.7/cmake-3.6.1-2ihz7qgwklvemtqu7wzpdfbt3eog6sqh/share/cmake-3.6/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_b9da6
+/autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20170224/linux-rhel6-x86_64/gcc-4.4.7/cmake-3.6.1-2ihz7qgwklvemtqu7wzpdfbt3eog6sqh/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b9da6.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc  -g -O3    -v CMakeFiles/cmTC_b9da6.dir/CMakeCCompilerABI.c.o  -o cmTC_b9da6 -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc
+COLLECT_LTO_WRAPPER=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/lto-wrapper
+Target: x86_64-redhat-linux
+Configured with: ../gcc-6.2.0/configure --build=x86_64-redhat-linux --prefix=/ccs/compilers/gcc/rhel6-x86_64/6.2.0 --libdir=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-gmp-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-gmp-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-mpfr-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-mpfr-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-mpc-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-mpc-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-isl-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-isl-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64
+Thread model: posix
+gcc version 6.2.0 (GCC) 
+COMPILER_PATH=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/
+LIBRARY_PATH=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/sw/rhea/hdf5/1.8.11/rhel6.6_gnu4.8.2/lib/:/sw/rhea/fastbit/svn/rhel6.6_gnu4.8.2/lib/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-g' '-O3' '-v' '-o' 'cmTC_b9da6' '-rdynamic' '-mtune=generic' '-march=x86-64'
+ /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/collect2 --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_b9da6 /usr/lib/../lib64/crt1.o /usr/lib/../lib64/crti.o /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtbegin.o -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0 -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/sw/rhea/hdf5/1.8.11/rhel6.6_gnu4.8.2/lib -L/sw/rhea/fastbit/svn/rhel6.6_gnu4.8.2/lib -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../.. CMakeFiles/cmTC_b9da6.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtend.o /usr/lib/../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-g' '-O3' '-v' '-o' 'cmTC_b9da6' '-rdynamic' '-mtune=generic' '-march=x86-64'
+gmake[1]: Leaving directory `/autofs/nccs-svm1_home1/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /ccs/home/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_b9da6/fast"]
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_b9da6.dir/build.make CMakeFiles/cmTC_b9da6.dir/build]
+  ignore line: [gmake[1]: Entering directory `/autofs/nccs-svm1_home1/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_b9da6.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc    -g -O3    -o CMakeFiles/cmTC_b9da6.dir/CMakeCCompilerABI.c.o   -c /autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20170224/linux-rhel6-x86_64/gcc-4.4.7/cmake-3.6.1-2ihz7qgwklvemtqu7wzpdfbt3eog6sqh/share/cmake-3.6/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_b9da6]
+  ignore line: [/autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20170224/linux-rhel6-x86_64/gcc-4.4.7/cmake-3.6.1-2ihz7qgwklvemtqu7wzpdfbt3eog6sqh/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b9da6.dir/link.txt --verbose=1]
+  ignore line: [/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc  -g -O3    -v CMakeFiles/cmTC_b9da6.dir/CMakeCCompilerABI.c.o  -o cmTC_b9da6 -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/lto-wrapper]
+  ignore line: [Target: x86_64-redhat-linux]
+  ignore line: [Configured with: ../gcc-6.2.0/configure --build=x86_64-redhat-linux --prefix=/ccs/compilers/gcc/rhel6-x86_64/6.2.0 --libdir=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-gmp-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-gmp-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-mpfr-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-mpfr-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-mpc-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-mpc-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-isl-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-isl-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 6.2.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/]
+  ignore line: [LIBRARY_PATH=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/sw/rhea/hdf5/1.8.11/rhel6.6_gnu4.8.2/lib/:/sw/rhea/fastbit/svn/rhel6.6_gnu4.8.2/lib/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-g' '-O3' '-v' '-o' 'cmTC_b9da6' '-rdynamic' '-mtune=generic' '-march=x86-64']
+  link line: [ /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/collect2 --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_b9da6 /usr/lib/../lib64/crt1.o /usr/lib/../lib64/crti.o /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtbegin.o -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0 -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/sw/rhea/hdf5/1.8.11/rhel6.6_gnu4.8.2/lib -L/sw/rhea/fastbit/svn/rhel6.6_gnu4.8.2/lib -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../.. CMakeFiles/cmTC_b9da6.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtend.o /usr/lib/../lib64/crtn.o]
+    arg [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/collect2] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_b9da6] ==> ignore
+    arg [/usr/lib/../lib64/crt1.o] ==> ignore
+    arg [/usr/lib/../lib64/crti.o] ==> ignore
+    arg [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtbegin.o] ==> ignore
+    arg [-L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0] ==> dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0]
+    arg [-L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc] ==> dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc]
+    arg [-L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64] ==> dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/sw/rhea/hdf5/1.8.11/rhel6.6_gnu4.8.2/lib] ==> dir [/sw/rhea/hdf5/1.8.11/rhel6.6_gnu4.8.2/lib]
+    arg [-L/sw/rhea/fastbit/svn/rhel6.6_gnu4.8.2/lib] ==> dir [/sw/rhea/fastbit/svn/rhel6.6_gnu4.8.2/lib]
+    arg [-L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../..] ==> dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../..]
+    arg [CMakeFiles/cmTC_b9da6.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtend.o] ==> ignore
+    arg [/usr/lib/../lib64/crtn.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  collapse library dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0] ==> [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64/gcc/x86_64-redhat-linux/6.2.0]
+  collapse library dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc] ==> [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64/gcc]
+  collapse library dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64] ==> [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/sw/rhea/hdf5/1.8.11/rhel6.6_gnu4.8.2/lib] ==> [/sw/rhea/hdf5/1.8.11/rhel6.6_gnu4.8.2/lib]
+  collapse library dir [/sw/rhea/fastbit/svn/rhel6.6_gnu4.8.2/lib] ==> [/sw/rhea/fastbit/svn/rhel6.6_gnu4.8.2/lib]
+  collapse library dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../..] ==> [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64]
+  implicit libs: [c]
+  implicit dirs: [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64/gcc/x86_64-redhat-linux/6.2.0;/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64/gcc;/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64;/lib64;/usr/lib64;/sw/rhea/hdf5/1.8.11/rhel6.6_gnu4.8.2/lib;/sw/rhea/fastbit/svn/rhel6.6_gnu4.8.2/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /ccs/home/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_a61c1/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_a61c1.dir/build.make CMakeFiles/cmTC_a61c1.dir/build
+gmake[1]: Entering directory `/autofs/nccs-svm1_home1/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a61c1.dir/feature_tests.c.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc    -g -O3    -std=c11 -o CMakeFiles/cmTC_a61c1.dir/feature_tests.c.o   -c /ccs/home/nic8504/rhea/alpine/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_a61c1
+/autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20170224/linux-rhel6-x86_64/gcc-4.4.7/cmake-3.6.1-2ihz7qgwklvemtqu7wzpdfbt3eog6sqh/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a61c1.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc  -g -O3     CMakeFiles/cmTC_a61c1.dir/feature_tests.c.o  -o cmTC_a61c1 -rdynamic 
+gmake[1]: Leaving directory `/autofs/nccs-svm1_home1/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /ccs/home/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_2c8b2/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_2c8b2.dir/build.make CMakeFiles/cmTC_2c8b2.dir/build
+gmake[1]: Entering directory `/autofs/nccs-svm1_home1/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2c8b2.dir/feature_tests.c.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc    -g -O3    -std=c99 -o CMakeFiles/cmTC_2c8b2.dir/feature_tests.c.o   -c /ccs/home/nic8504/rhea/alpine/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_2c8b2
+/autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20170224/linux-rhel6-x86_64/gcc-4.4.7/cmake-3.6.1-2ihz7qgwklvemtqu7wzpdfbt3eog6sqh/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2c8b2.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc  -g -O3     CMakeFiles/cmTC_2c8b2.dir/feature_tests.c.o  -o cmTC_2c8b2 -rdynamic 
+gmake[1]: Leaving directory `/autofs/nccs-svm1_home1/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /ccs/home/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_26f93/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_26f93.dir/build.make CMakeFiles/cmTC_26f93.dir/build
+gmake[1]: Entering directory `/autofs/nccs-svm1_home1/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_26f93.dir/feature_tests.c.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc    -g -O3    -std=c90 -o CMakeFiles/cmTC_26f93.dir/feature_tests.c.o   -c /ccs/home/nic8504/rhea/alpine/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_26f93
+/autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20170224/linux-rhel6-x86_64/gcc-4.4.7/cmake-3.6.1-2ihz7qgwklvemtqu7wzpdfbt3eog6sqh/bin/cmake -E cmake_link_script CMakeFiles/cmTC_26f93.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc  -g -O3     CMakeFiles/cmTC_26f93.dir/feature_tests.c.o  -o cmTC_26f93 -rdynamic 
+gmake[1]: Leaving directory `/autofs/nccs-svm1_home1/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /ccs/home/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_c5de6/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_c5de6.dir/build.make CMakeFiles/cmTC_c5de6.dir/build
+gmake[1]: Entering directory `/autofs/nccs-svm1_home1/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c5de6.dir/testCXXCompiler.cxx.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++     -g -O3    -o CMakeFiles/cmTC_c5de6.dir/testCXXCompiler.cxx.o -c /ccs/home/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_c5de6
+/autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20170224/linux-rhel6-x86_64/gcc-4.4.7/cmake-3.6.1-2ihz7qgwklvemtqu7wzpdfbt3eog6sqh/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c5de6.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++   -g -O3     CMakeFiles/cmTC_c5de6.dir/testCXXCompiler.cxx.o  -o cmTC_c5de6 -rdynamic 
+gmake[1]: Leaving directory `/autofs/nccs-svm1_home1/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /ccs/home/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_d4fdf/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_d4fdf.dir/build.make CMakeFiles/cmTC_d4fdf.dir/build
+gmake[1]: Entering directory `/autofs/nccs-svm1_home1/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d4fdf.dir/CMakeCXXCompilerABI.cpp.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++     -g -O3    -o CMakeFiles/cmTC_d4fdf.dir/CMakeCXXCompilerABI.cpp.o -c /autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20170224/linux-rhel6-x86_64/gcc-4.4.7/cmake-3.6.1-2ihz7qgwklvemtqu7wzpdfbt3eog6sqh/share/cmake-3.6/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_d4fdf
+/autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20170224/linux-rhel6-x86_64/gcc-4.4.7/cmake-3.6.1-2ihz7qgwklvemtqu7wzpdfbt3eog6sqh/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d4fdf.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++   -g -O3    -v CMakeFiles/cmTC_d4fdf.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_d4fdf -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++
+COLLECT_LTO_WRAPPER=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/lto-wrapper
+Target: x86_64-redhat-linux
+Configured with: ../gcc-6.2.0/configure --build=x86_64-redhat-linux --prefix=/ccs/compilers/gcc/rhel6-x86_64/6.2.0 --libdir=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-gmp-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-gmp-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-mpfr-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-mpfr-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-mpc-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-mpc-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-isl-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-isl-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64
+Thread model: posix
+gcc version 6.2.0 (GCC) 
+COMPILER_PATH=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/
+LIBRARY_PATH=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/sw/rhea/hdf5/1.8.11/rhel6.6_gnu4.8.2/lib/:/sw/rhea/fastbit/svn/rhel6.6_gnu4.8.2/lib/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-g' '-O3' '-v' '-o' 'cmTC_d4fdf' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/collect2 --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_d4fdf /usr/lib/../lib64/crt1.o /usr/lib/../lib64/crti.o /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtbegin.o -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0 -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/sw/rhea/hdf5/1.8.11/rhel6.6_gnu4.8.2/lib -L/sw/rhea/fastbit/svn/rhel6.6_gnu4.8.2/lib -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../.. CMakeFiles/cmTC_d4fdf.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtend.o /usr/lib/../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-g' '-O3' '-v' '-o' 'cmTC_d4fdf' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+gmake[1]: Leaving directory `/autofs/nccs-svm1_home1/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /ccs/home/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_d4fdf/fast"]
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_d4fdf.dir/build.make CMakeFiles/cmTC_d4fdf.dir/build]
+  ignore line: [gmake[1]: Entering directory `/autofs/nccs-svm1_home1/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_d4fdf.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++     -g -O3    -o CMakeFiles/cmTC_d4fdf.dir/CMakeCXXCompilerABI.cpp.o -c /autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20170224/linux-rhel6-x86_64/gcc-4.4.7/cmake-3.6.1-2ihz7qgwklvemtqu7wzpdfbt3eog6sqh/share/cmake-3.6/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_d4fdf]
+  ignore line: [/autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20170224/linux-rhel6-x86_64/gcc-4.4.7/cmake-3.6.1-2ihz7qgwklvemtqu7wzpdfbt3eog6sqh/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d4fdf.dir/link.txt --verbose=1]
+  ignore line: [/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++   -g -O3    -v CMakeFiles/cmTC_d4fdf.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_d4fdf -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/lto-wrapper]
+  ignore line: [Target: x86_64-redhat-linux]
+  ignore line: [Configured with: ../gcc-6.2.0/configure --build=x86_64-redhat-linux --prefix=/ccs/compilers/gcc/rhel6-x86_64/6.2.0 --libdir=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-gmp-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-gmp-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-mpfr-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-mpfr-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-mpc-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-mpc-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64 --with-isl-include=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/include --with-isl-lib=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/lib64]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 6.2.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/]
+  ignore line: [LIBRARY_PATH=/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/sw/rhea/hdf5/1.8.11/rhel6.6_gnu4.8.2/lib/:/sw/rhea/fastbit/svn/rhel6.6_gnu4.8.2/lib/:/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-g' '-O3' '-v' '-o' 'cmTC_d4fdf' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/collect2 --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_d4fdf /usr/lib/../lib64/crt1.o /usr/lib/../lib64/crti.o /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtbegin.o -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0 -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/sw/rhea/hdf5/1.8.11/rhel6.6_gnu4.8.2/lib -L/sw/rhea/fastbit/svn/rhel6.6_gnu4.8.2/lib -L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../.. CMakeFiles/cmTC_d4fdf.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtend.o /usr/lib/../lib64/crtn.o]
+    arg [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../libexec/gcc/x86_64-redhat-linux/6.2.0/collect2] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_d4fdf] ==> ignore
+    arg [/usr/lib/../lib64/crt1.o] ==> ignore
+    arg [/usr/lib/../lib64/crti.o] ==> ignore
+    arg [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtbegin.o] ==> ignore
+    arg [-L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0] ==> dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0]
+    arg [-L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc] ==> dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc]
+    arg [-L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64] ==> dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/sw/rhea/hdf5/1.8.11/rhel6.6_gnu4.8.2/lib] ==> dir [/sw/rhea/hdf5/1.8.11/rhel6.6_gnu4.8.2/lib]
+    arg [-L/sw/rhea/fastbit/svn/rhel6.6_gnu4.8.2/lib] ==> dir [/sw/rhea/fastbit/svn/rhel6.6_gnu4.8.2/lib]
+    arg [-L/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../..] ==> dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../..]
+    arg [CMakeFiles/cmTC_d4fdf.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/crtend.o] ==> ignore
+    arg [/usr/lib/../lib64/crtn.o] ==> ignore
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  collapse library dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0] ==> [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64/gcc/x86_64-redhat-linux/6.2.0]
+  collapse library dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc] ==> [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64/gcc]
+  collapse library dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../../../lib64] ==> [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/sw/rhea/hdf5/1.8.11/rhel6.6_gnu4.8.2/lib] ==> [/sw/rhea/hdf5/1.8.11/rhel6.6_gnu4.8.2/lib]
+  collapse library dir [/sw/rhea/fastbit/svn/rhel6.6_gnu4.8.2/lib] ==> [/sw/rhea/fastbit/svn/rhel6.6_gnu4.8.2/lib]
+  collapse library dir [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/bin/../lib64/gcc/x86_64-redhat-linux/6.2.0/../../..] ==> [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64]
+  implicit libs: [stdc++;m;c]
+  implicit dirs: [/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64/gcc/x86_64-redhat-linux/6.2.0;/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64/gcc;/autofs/nccs-svm1_compilers/gcc/rhel6-x86_64/6.2.0/lib64;/lib64;/usr/lib64;/sw/rhea/hdf5/1.8.11/rhel6.6_gnu4.8.2/lib;/sw/rhea/fastbit/svn/rhel6.6_gnu4.8.2/lib]
+  implicit fwks: []
+
+
+
+
+Detecting CXX [-std=c++14] compiler features compiled with the following output:
+Change Dir: /ccs/home/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_28a8b/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_28a8b.dir/build.make CMakeFiles/cmTC_28a8b.dir/build
+gmake[1]: Entering directory `/autofs/nccs-svm1_home1/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_28a8b.dir/feature_tests.cxx.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++     -g -O3    -std=c++14 -o CMakeFiles/cmTC_28a8b.dir/feature_tests.cxx.o -c /ccs/home/nic8504/rhea/alpine/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_28a8b
+/autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20170224/linux-rhel6-x86_64/gcc-4.4.7/cmake-3.6.1-2ihz7qgwklvemtqu7wzpdfbt3eog6sqh/bin/cmake -E cmake_link_script CMakeFiles/cmTC_28a8b.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++   -g -O3     CMakeFiles/cmTC_28a8b.dir/feature_tests.cxx.o  -o cmTC_28a8b -rdynamic 
+gmake[1]: Leaving directory `/autofs/nccs-svm1_home1/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++11] compiler features compiled with the following output:
+Change Dir: /ccs/home/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_aac53/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_aac53.dir/build.make CMakeFiles/cmTC_aac53.dir/build
+gmake[1]: Entering directory `/autofs/nccs-svm1_home1/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_aac53.dir/feature_tests.cxx.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++     -g -O3    -std=c++11 -o CMakeFiles/cmTC_aac53.dir/feature_tests.cxx.o -c /ccs/home/nic8504/rhea/alpine/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_aac53
+/autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20170224/linux-rhel6-x86_64/gcc-4.4.7/cmake-3.6.1-2ihz7qgwklvemtqu7wzpdfbt3eog6sqh/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aac53.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++   -g -O3     CMakeFiles/cmTC_aac53.dir/feature_tests.cxx.o  -o cmTC_aac53 -rdynamic 
+gmake[1]: Leaving directory `/autofs/nccs-svm1_home1/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++98] compiler features compiled with the following output:
+Change Dir: /ccs/home/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_163ef/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_163ef.dir/build.make CMakeFiles/cmTC_163ef.dir/build
+gmake[1]: Entering directory `/autofs/nccs-svm1_home1/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_163ef.dir/feature_tests.cxx.o
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++     -g -O3    -std=c++98 -o CMakeFiles/cmTC_163ef.dir/feature_tests.cxx.o -c /ccs/home/nic8504/rhea/alpine/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_163ef
+/autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20170224/linux-rhel6-x86_64/gcc-4.4.7/cmake-3.6.1-2ihz7qgwklvemtqu7wzpdfbt3eog6sqh/bin/cmake -E cmake_link_script CMakeFiles/cmTC_163ef.dir/link.txt --verbose=1
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++   -g -O3     CMakeFiles/cmTC_163ef.dir/feature_tests.cxx.o  -o cmTC_163ef -rdynamic 
+gmake[1]: Leaving directory `/autofs/nccs-svm1_home1/nic8504/rhea/alpine/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:0cxx_alias_templates
+    Feature record: CXX_FEATURE:0cxx_alignas
+    Feature record: CXX_FEATURE:0cxx_alignof
+    Feature record: CXX_FEATURE:0cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:0cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:0cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:0cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:0cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:0cxx_default_function_template_args
+    Feature record: CXX_FEATURE:0cxx_defaulted_functions
+    Feature record: CXX_FEATURE:0cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:0cxx_delegating_constructors
+    Feature record: CXX_FEATURE:0cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:0cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:0cxx_explicit_conversions
+    Feature record: CXX_FEATURE:0cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:0cxx_extern_templates
+    Feature record: CXX_FEATURE:0cxx_final
+    Feature record: CXX_FEATURE:0cxx_func_identifier
+    Feature record: CXX_FEATURE:0cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:0cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:0cxx_inline_namespaces
+    Feature record: CXX_FEATURE:0cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:0cxx_local_type_template_args
+    Feature record: CXX_FEATURE:0cxx_long_long_type
+    Feature record: CXX_FEATURE:0cxx_noexcept
+    Feature record: CXX_FEATURE:0cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:0cxx_nullptr
+    Feature record: CXX_FEATURE:0cxx_override
+    Feature record: CXX_FEATURE:0cxx_range_for
+    Feature record: CXX_FEATURE:0cxx_raw_string_literals
+    Feature record: CXX_FEATURE:0cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:0cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:0cxx_rvalue_references
+    Feature record: CXX_FEATURE:0cxx_sizeof_member
+    Feature record: CXX_FEATURE:0cxx_static_assert
+    Feature record: CXX_FEATURE:0cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:0cxx_thread_local
+    Feature record: CXX_FEATURE:0cxx_trailing_return_types
+    Feature record: CXX_FEATURE:0cxx_unicode_literals
+    Feature record: CXX_FEATURE:0cxx_uniform_initialization
+    Feature record: CXX_FEATURE:0cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:0cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:0cxx_variadic_macros
+    Feature record: CXX_FEATURE:0cxx_variadic_templates

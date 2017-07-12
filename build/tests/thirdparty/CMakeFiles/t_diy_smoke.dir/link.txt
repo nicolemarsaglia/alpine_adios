@@ -1,0 +1,1 @@
+/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++   -g -O3  -ladios CMakeFiles/t_diy_smoke.dir/t_diy_smoke.cpp.o  -o t_diy_smoke -rdynamic ../../thirdparty_builtin/gtest-1.7.0/libgtest_main.a ../../thirdparty_builtin/gtest-1.7.0/libgtest.a /sw/rhea/openmpi/2.0.1/rhel6.6_gcc6.2.0/lib/libmpi.so -lpthread -Wl,-rpath,/sw/rhea/openmpi/2.0.1/rhel6.6_gcc6.2.0/lib 

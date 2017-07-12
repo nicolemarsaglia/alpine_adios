@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/lustre/atlas/scratch/nic8504/csc094/rhea/alpine/src/thirdparty_builtin/lodepng/lodepng.cpp
+lodepng.h
+/lustre/atlas/scratch/nic8504/csc094/rhea/alpine/src/thirdparty_builtin/lodepng/lodepng.h
+stdio.h
+-
+stdlib.h
+-
+fstream
+-
+
+/lustre/atlas/scratch/nic8504/csc094/rhea/alpine/src/thirdparty_builtin/lodepng/lodepng.h
+string.h
+-
+vector
+-
+string
+-
+lodepng.h
+/lustre/atlas/scratch/nic8504/csc094/rhea/alpine/src/thirdparty_builtin/lodepng/lodepng.h
+iostream
+-
+lodepng.h
+/lustre/atlas/scratch/nic8504/csc094/rhea/alpine/src/thirdparty_builtin/lodepng/lodepng.h
+

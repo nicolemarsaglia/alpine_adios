@@ -1,0 +1,112 @@
+# This file is configured by CMake automatically as DartConfiguration.tcl
+# If you choose not to use CMake, this file may be hand configured, by
+# filling in the required variables.
+
+
+# Configuration directories and files
+SourceDirectory: /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/src
+BuildDirectory: /ccs/home/nic8504/rhea/alpine/build
+
+# Where to place the cost data store
+CostDataFile: 
+
+# Site is something like machine.domain, i.e. pragmatic.crd
+Site: rhea-login3g
+
+# Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
+BuildName: Linux-g++
+
+# Submission information
+IsCDash: 
+CDashVersion: 
+QueryCDashVersion: 
+DropSite: 
+DropLocation: 
+DropSiteUser: 
+DropSitePassword: 
+DropSiteMode: 
+DropMethod: http
+TriggerSite: 
+ScpCommand: /usr/bin/scp
+
+# Dashboard start time
+NightlyStartTime: 00:00:00 EDT
+
+# Commands for the build/test/submit cycle
+ConfigureCommand: "/autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20170224/linux-rhel6-x86_64/gcc-4.4.7/cmake-3.6.1-2ihz7qgwklvemtqu7wzpdfbt3eog6sqh/bin/cmake" "/lustre/atlas/scratch/nic8504/csc094/rhea/alpine/src"
+MakeCommand: /autofs/nccs-svm1_sw/redhat6/cmake3/3.5.2/rhel6_gnu4.8.2/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
+DefaultCTestConfigurationType: Release
+
+# version control
+UpdateVersionOnly: 
+
+# CVS options
+# Default is "-d -P -A"
+CVSCommand: /usr/bin/cvs
+CVSUpdateOptions: -d -A -P
+
+# Subversion options
+SVNCommand: /usr/bin/svn
+SVNOptions: 
+SVNUpdateOptions: 
+
+# Git options
+GITCommand: /usr/bin/git
+GITInitSubmodules: 
+GITUpdateOptions: 
+GITUpdateCustom: 
+
+# Perforce options
+P4Command: P4COMMAND-NOTFOUND
+P4Client: 
+P4Options: 
+P4UpdateOptions: 
+P4UpdateCustom: 
+
+# Generic update command
+UpdateCommand: 
+UpdateOptions: 
+UpdateType: 
+
+# Compiler info
+Compiler: /ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++
+CompilerVersion: 6.2.0
+
+# Dynamic analysis (MemCheck)
+PurifyCommand: 
+ValgrindCommand: 
+ValgrindCommandOptions: 
+MemoryCheckType: 
+MemoryCheckSanitizerOptions: 
+MemoryCheckCommand: /usr/bin/valgrind
+MemoryCheckCommandOptions: 
+MemoryCheckSuppressionFile: /lustre/atlas/scratch/nic8504/csc094/rhea/alpine/src/CMake/valgrind.supp
+
+# Coverage
+CoverageCommand: /ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcov
+CoverageExtraFlags: -l
+
+# Cluster commands
+SlurmBatchCommand: SLURM_SBATCH_COMMAND-NOTFOUND
+SlurmRunCommand: SLURM_SRUN_COMMAND-NOTFOUND
+
+# Testing options
+# TimeOut is the amount of time in seconds to wait for processes
+# to complete during testing.  After TimeOut seconds, the
+# process will be summarily terminated.
+# Currently set to 25 minutes
+TimeOut: 1500
+
+# During parallel testing CTest will not start a new test if doing
+# so would cause the system load to exceed this value.
+TestLoad: 
+
+UseLaunchers: 
+CurlOptions: 
+# warning, if you add new options here that have to do with submit,
+# you have to update cmCTestSubmitCommand.cxx
+
+# For CTest submissions that timeout, these options
+# specify behavior for retrying the submission
+CTestSubmitRetryDelay: 5
+CTestSubmitRetryCount: 3

@@ -1,0 +1,31 @@
+cmake -DCMAKE_CXX_COMPILER=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++ \
+  -DCMAKE_CXX_FLAGS="-g -O3" \
+  -DCMAKE_C_FLAGS="-g -O3" \
+  -DCMAKE_C_COMPILER=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc \
+  -DENABLE_FORTRAN=OFF \
+  -DCMAKE_INSTALL_PREFIX=/lustre/atlas/scratch/nic8504/csc094/rhea/alpine/install \
+  -DCONDUIT_DIR=/lustre/atlas/scratch/nic8504/csc094/rhea/conduit/install \
+  -DENABLE_PYTHON=OFF \
+  -DICET_DIR=/ccs/proj/csc094/pugmire/strawman/rhea/icet/install  \
+  -DHDF5_DIR=/sw/rhea/hdf5/1.8.11/rhel6.6_gnu4.8.2 \
+  -DVTKM_DIR=/lustre/atlas/scratch/nic8504/csc094/rhea/vtkm \
+  ../src
+
+#  -DEAVL_DIR=/ccs/proj/csc094/pugmire/strawman/rhea/EAVL \
+
+
+#  -DVTKM_DIR:PATH=/ccs/proj/csc094/dchu/include \
+#  -DVTKm_DIR:PATH=/ccs/proj/csc094/dchu/include \
+
+#  -DTBB_DIR=/sw/redhat6/boost/1.61.0/rhel6_gnu4.8.2  \
+
+
+# -DVTKm_DIR=/ccs/proj/csc094/pugmire/strawman/rhea/vtkm/install  \
+
+
+
+
+
+
+
+
