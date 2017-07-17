@@ -94,7 +94,7 @@ namespace alpine
 // Internal Class that coordinates writing.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-class ADIOSPIPELINE::IOManager
+class AdiosPipeline::IOManager
 {
 public:
 
