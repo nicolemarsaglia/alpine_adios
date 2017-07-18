@@ -66,13 +66,15 @@ find_path(ADIOS_INCLUDE_DIRS adios.h
           NO_CMAKE_SYSTEM_PATH)
 
 #find libs
-find_library(ADIOS_LIBRARIES LIBRARIES NAMES adios
+find_library(ADIOS_LIB LIBRARIES NAMES adios
              PATHS ${ADIOS_DIR}/lib
              NO_DEFAULT_PATH
              NO_CMAKE_ENVIRONMENT_PATH
              NO_CMAKE_PATH
              NO_SYSTEM_ENVIRONMENT_PATH
              NO_CMAKE_SYSTEM_PATH)
+
+###DRP set(ADIOS_LIBRARIES ${ADIOS_LIB})
 
 
 include(FindPackageHandleStandardArgs)

@@ -165,7 +165,6 @@ set(alpine_thirdparty_libs
     conduit
     conduit_relay
     conduit_blueprint
-    adios
     alpine_flow)
 
 if(VTKM_FOUND)
@@ -292,6 +291,7 @@ if(MPI_FOUND)
                           conduit_relay_mpi
                           ${alpine_thirdparty_libs}
                           ${ICET_LIBRARIES}
+                          ${ADIOS_LIBRARIES}
                           ${MPI_CXX_LIBRARIES})
 
 

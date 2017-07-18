@@ -138,8 +138,8 @@ if(HDF5_DIR)
 endif()
 
 if(ADIOS_DIR)
-     include(CMake/thirdparty/SetupADIOS.cmake)
-     #message("adios code in third party setup")	
+  set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${ADIOS_DIR}/etc")
+  find_package(ADIOS)
 endif()
 
 ################################
