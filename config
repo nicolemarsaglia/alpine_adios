@@ -3,12 +3,13 @@ cmake -DCMAKE_CXX_COMPILER=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/g++ \
   -DCMAKE_C_FLAGS="-g -O3" \
   -DCMAKE_C_COMPILER=/ccs/compilers/gcc/rhel6-x86_64/6.2.0/bin/gcc \
   -DENABLE_FORTRAN=OFF \
-  -DCMAKE_INSTALL_PREFIX=/lustre/atlas/scratch/nic8504/csc094/rhea/alpine/install \
-  -DCONDUIT_DIR=/lustre/atlas/scratch/nic8504/csc094/rhea/conduit/install \
+  -DCMAKE_INSTALL_PREFIX=/ccs/home/nic8504/rhea/alpine_adios/install \
+  -DCONDUIT_DIR=/ccs/home/nic8504/rhea/conduit/install \
   -DENABLE_PYTHON=OFF \
   -DICET_DIR=/ccs/proj/csc094/pugmire/strawman/rhea/icet/install  \
   -DHDF5_DIR=/sw/rhea/hdf5/1.8.11/rhel6.6_gnu4.8.2 \
-  -DVTKM_DIR=/lustre/atlas/scratch/nic8504/csc094/rhea/vtkm \
+  -DVTKM_DIR=/ccs/home/nic8504/rhea/vtkm \
+  -DADIOS_DIR=/ccs/home/nic8504/rhea/adios/install \
   ../src
 
 #  -DEAVL_DIR=/ccs/proj/csc094/pugmire/strawman/rhea/EAVL \

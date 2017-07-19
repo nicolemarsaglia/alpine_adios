@@ -2855,7 +2855,6 @@ int main(int argc, char *argv[])
    //
     Alpine sman;
     Node alpine_opts;
-
 #if USE_MPI
     alpine_opts["mpi_comm"] = MPI_Comm_c2f(MPI_COMM_WORLD);
 #endif
@@ -2906,8 +2905,9 @@ int main(int argc, char *argv[])
             std::string output_path = "";
             conduit::Node actions;
 	    conduit::Node &save = actions.append();
-            save["action"] = save;
-            save["output_path"] = "/lustre/atlas/scratch/nic8504/csc094/rhea/save";
+            save["action"] = "save";
+   std::cout<<"HERE IN LULESH"<<std::endl;
+            save["output_path"] = "/ccs/home/nic8504/rhea/save";
             save["selected_vars"] = "coordsets/coords/values";
             sman.Publish(locDom->visitNode());
             sman.Execute(actions);
