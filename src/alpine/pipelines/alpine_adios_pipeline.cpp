@@ -163,19 +163,17 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data,
 
     int par_size;
     MPI_Comm_size(m_mpi_comm, &par_size);
-
-    const Node &x_data = data[options["selected_vars"].as_string()];
-    int child_count=x_data.number_of_children(); 
-    std::cout<<"child_count "<<child_count<<"\n";
-
     adios_declare_group (&m_adios_group,"test_data", "iter", adios_stat_default);
     adios_select_method (m_adios_group, "MPI", "", "");
    
-    
     char        filename [100];    
     strcpy (filename, options["output_path"].as_char8_str());
     adios_open (&m_adios_file, "test_data", filename, "w", m_mpi_comm);
-
+    
+    const Node &x_data = data[options["coord_vals"].as_string()];
+    int child_count=x_data.number_of_children(); 
+    std::cout<<"child_count "<<child_count<<"\n";
+    if(child_count > 0){ 
     for (int i=0;i<child_count;i++)
     {        
 	    char var_name[50]="",t[5]="";
@@ -201,7 +199,85 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data,
 	    adios_write_byid(m_adios_file, var_id, (void *)child_node.as_float64_ptr());
    
      }
-     
+     }
+     if(child_count == 0){
+            char var_name[50]="",t[5]="";
+            DataType x_dt=x_data.dtype();
+            int num_ele=x_dt.number_of_elements();
+            int ele_size=x_dt.element_bytes();
+            sprintf(t, "%d", 0);
+            strcat(var_name, "var");
+            strcat(var_name, t);
+            char         l_str[100], g_str[100],o_str[100];
+            sprintf (g_str, "%d", num_ele);
+            sprintf (l_str, "%d", num_ele/par_size);
+
+            int offset=m_rank*(num_ele/par_size);
+            sprintf (o_str, "%d", offset);
+            std::cout<<g_str<<" vbn "<<l_str<<"  "<<o_str<<"  "<< m_rank<<"\n";
+            int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
+            adios_set_transform (var_id, "none");
+
+
+            adios_write_byid(m_adios_file, var_id, (void *)x_data.as_float64_ptr());
+
+     }
+
+
+    const Node &val_data = data[options["selected_vals"].as_string()];
+    int child_count_val=val_data.number_of_children(); 
+    std::cout<< "child count val " << child_count_val << std::endl;
+    if(child_count_val == 0){
+            char var_name[50]="",t[5]="";
+            DataType v_dt=val_data.dtype();
+            int num_ele=v_dt.number_of_elements();
+            int ele_size=v_dt.element_bytes();
+            sprintf(t, "%d", 0);
+            strcat(var_name, "val");
+            strcat(var_name, t);
+            char         l_str[100], g_str[100],o_str[100];
+            sprintf (g_str, "%d", num_ele);
+            sprintf (l_str, "%d", num_ele/par_size);
+
+            int offset=m_rank*(num_ele/par_size);
+            sprintf (o_str, "%d", offset);
+            std::cout<<g_str<<" vbn "<<l_str<<"  "<<o_str<<"  "<< m_rank<<"\n";
+            int64_t var_id = adios_define_attribute_byvalue(m_adios_group, var_name, "", adios_double, num_ele, (void *)val_data.as_float64_ptr());
+//adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
+            //adios_set_transform (var_id, "none");
+
+
+            adios_write_byid(m_adios_file, var_id, (void *)val_data.as_float64_ptr());
+std::cout<<"after" << std::endl;
+
+     }
+    if(child_count_val > 0){
+    for (int i=0;i<child_count_val;i++)
+    {
+            char var_name[50]="",t[5]="";
+            Node child_node=val_data.child(i);
+            DataType x_dt=child_node.dtype();
+            int num_ele=x_dt.number_of_elements();
+            int ele_size=x_dt.element_bytes();
+            sprintf(t, "%d", i);
+            strcat(var_name, "var");
+            strcat(var_name, t);
+            char         l_str[100], g_str[100],o_str[100];
+            sprintf (g_str, "%d", num_ele);
+            sprintf (l_str, "%d", num_ele/par_size);
+
+            int offset=m_rank*(num_ele/par_size);
+            sprintf (o_str, "%d", offset);
+            std::cout<<g_str<<" vbn "<<l_str<<"  "<<o_str<<"  "<< m_rank<<"\n";
+
+            int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
+            adios_set_transform (var_id, "none");
+
+
+            adios_write_byid(m_adios_file, var_id, (void *)child_node.as_float64_ptr());
+     }
+     }
+
      adios_close (m_adios_file);
 
      MPI_Barrier (m_mpi_comm);
@@ -260,6 +336,7 @@ AdiosPipeline::Initialize(const conduit::Node &options)
 #else
     m_io = new IOManager();
 #endif
+std::cout<<"HERE"<<std::endl;
 
 }
 
