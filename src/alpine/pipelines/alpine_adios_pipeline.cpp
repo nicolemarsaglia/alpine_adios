@@ -173,68 +173,60 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data,
     const Node &x_data = data[options["coord_vals"].as_string()];
     int child_count=x_data.number_of_children(); 
     std::cout<<"child_count "<<child_count<<"\n";
-    if(child_count > 0){ 
-    for (int i=0;i<child_count;i++)
-    {        
-	    char var_name[50]="",t[5]="";
-            Node child_node=x_data.child(i);
-	    DataType x_dt=child_node.dtype();
-	    int num_ele=x_dt.number_of_elements();
-	    int ele_size=x_dt.element_bytes();
-	    sprintf(t, "%d", i);
-            strcat(var_name, "var");
-            strcat(var_name, t);
-	    char         l_str[100], g_str[100],o_str[100];
-	    sprintf (g_str, "%d", num_ele);
-	    sprintf (l_str, "%d", num_ele/par_size);
-	    
-	    int offset=m_rank*(num_ele/par_size);
-	    sprintf (o_str, "%d", offset);
-	    std::cout<<g_str<<" vbn "<<l_str<<"  "<<o_str<<"  "<< m_rank<<"\n";
-	    
-	    int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
-	    adios_set_transform (var_id, "none");
-	   
-	   
-	    adios_write_byid(m_adios_file, var_id, (void *)child_node.as_float64_ptr());
-   
-     }
-     }
-     if(child_count == 0){
+    
+    NodeConstIterator itr = data["coordsets"].children();
+    while(itr.has_next()){
+         const Node &coordset = itr.next();
+         std::string coordset_name = itr.name();
+         std::cout << "name " << coordset_name << std::endl;
+         Node idx_coordset = data["coordsets"][coordset_name];
+         std::string coordset_type = coordset["type"].as_string();
+         idx_coordset["type"] = coordset_type;
+         if(coordset_type == "uniform")
+	     std::cout << coordset_type << std::endl;
+         else
+	     std::cout << coordset_type << std::endl;
+         NodeConstIterator values_itr = coordset["values"].children();
+         int i = 0;   
+         while(values_itr.has_next()){
+            const Node &coords_values = values_itr.next();
+            std::cout<< "values " << values_itr.name() << std::endl;
             char var_name[50]="",t[5]="";
-            DataType x_dt=x_data.dtype();
+            DataType x_dt=coords_values.dtype();
             int num_ele=x_dt.number_of_elements();
             int ele_size=x_dt.element_bytes();
-            sprintf(t, "%d", 0);
+            sprintf(t, "%d", i);
+            i++;
+            std::cout << i << std::endl;
             strcat(var_name, "var");
             strcat(var_name, t);
-            char         l_str[100], g_str[100],o_str[100];
+            char l_str[100], g_str[100],o_str[100];
             sprintf (g_str, "%d", num_ele);
             sprintf (l_str, "%d", num_ele/par_size);
 
             int offset=m_rank*(num_ele/par_size);
             sprintf (o_str, "%d", offset);
             std::cout<<g_str<<" vbn "<<l_str<<"  "<<o_str<<"  "<< m_rank<<"\n";
+
             int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
             adios_set_transform (var_id, "none");
 
 
-            adios_write_byid(m_adios_file, var_id, (void *)x_data.as_float64_ptr());
+            adios_write_byid(m_adios_file, var_id, (void *)coords_values.as_float64_ptr());  
+        }
+    }
 
-     }
 
 
     const Node &val_data = data[options["selected_vals"].as_string()];
     int child_count_val=val_data.number_of_children(); 
     std::cout<< "child count val " << child_count_val << std::endl;
     if(child_count_val == 0){
-            char var_name[50]="",t[5]="";
+            char var_name[50]="";
             DataType v_dt=val_data.dtype();
             int num_ele=v_dt.number_of_elements();
             int ele_size=v_dt.element_bytes();
-            sprintf(t, "%d", 0);
             strcat(var_name, "val");
-            strcat(var_name, t);
             char         l_str[100], g_str[100],o_str[100];
             sprintf (g_str, "%d", num_ele);
             sprintf (l_str, "%d", num_ele/par_size);
@@ -242,25 +234,28 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data,
             int offset=m_rank*(num_ele/par_size);
             sprintf (o_str, "%d", offset);
             std::cout<<g_str<<" vbn "<<l_str<<"  "<<o_str<<"  "<< m_rank<<"\n";
-            int64_t var_id = adios_define_attribute_byvalue(m_adios_group, var_name, "", adios_double, num_ele, (void *)val_data.as_float64_ptr());
-//adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
-            //adios_set_transform (var_id, "none");
-
+            int64_t attribute_id = adios_define_attribute_byvalue(m_adios_group, var_name, "", adios_double, num_ele, (void *)val_data.as_float64_ptr());
+            int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
+            adios_set_transform (var_id, "none");
+            char dim[] ={10,10,10};
+            char axis[] = "XYZ";
+            const char mesh[] = "rectilinearmesh";
+            adios_define_mesh_rectilinear (dim, axis,"", m_adios_group , mesh);
 
             adios_write_byid(m_adios_file, var_id, (void *)val_data.as_float64_ptr());
 std::cout<<"after" << std::endl;
 
      }
     if(child_count_val > 0){
-    for (int i=0;i<child_count_val;i++)
-    {
+    	for (int i=0;i<child_count_val;i++)
+    	{
             char var_name[50]="",t[5]="";
             Node child_node=val_data.child(i);
             DataType x_dt=child_node.dtype();
             int num_ele=x_dt.number_of_elements();
             int ele_size=x_dt.element_bytes();
             sprintf(t, "%d", i);
-            strcat(var_name, "var");
+            strcat(var_name, "val");
             strcat(var_name, t);
             char         l_str[100], g_str[100],o_str[100];
             sprintf (g_str, "%d", num_ele);
@@ -275,7 +270,7 @@ std::cout<<"after" << std::endl;
 
 
             adios_write_byid(m_adios_file, var_id, (void *)child_node.as_float64_ptr());
-     }
+     	}
      }
 
      adios_close (m_adios_file);
