@@ -197,9 +197,10 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data,
             int ele_size=x_dt.element_bytes();
             sprintf(t, "%d", i);
             i++;
+            std::string c = itr.name();
+	    std::string var = values_itr.name();
             std::cout << i << std::endl;
-            strcat(var_name, "coord");
-            strcat(var_name, t);
+            sprintf(var_name,"%s/%s", c.c_str(), var.c_str());
             char l_str[100], g_str[100],o_str[100];
             sprintf (g_str, "%d", num_ele);
             sprintf (l_str, "%d", num_ele/par_size);
@@ -207,7 +208,7 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data,
             int offset=m_rank*(num_ele/par_size);
             sprintf (o_str, "%d", offset);
             std::cout<<g_str<<" vbn "<<l_str<<"  "<<o_str<<"  "<< m_rank<<"\n";
-
+            int64_t attribute_id = adios_define_attribute_byvalue(m_adios_group, var_name, "", adios_double, num_ele, (void *)coords_values.as_float64_ptr());
             int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
             adios_set_transform (var_id, "none");
 
