@@ -198,7 +198,7 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data,
             sprintf(t, "%d", i);
             i++;
             std::cout << i << std::endl;
-            strcat(var_name, "var");
+            strcat(var_name, "coord");
             strcat(var_name, t);
             char l_str[100], g_str[100],o_str[100];
             sprintf (g_str, "%d", num_ele);
@@ -215,63 +215,74 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data,
             adios_write_byid(m_adios_file, var_id, (void *)coords_values.as_float64_ptr());  
         }
     }
+    if (data.has_child("fields")){
+        itr = data["fields"].children();
+        int j = 0;
+        while(itr.has_next()){
+            const Node &fld = itr.next();
+            std:string fld_name = itr.name();
+            index_t ncomps = 1;
 
+            if(fld.has_child("values")){
+                if(fld["values"].dtype().is_float64()){
+                    std::cout<< "values 2 children: " << fld["values"].number_of_children() << std::endl;
+                    const Node &fld_val = fld["values"];
+                    char var_name[50]="";
+                    DataType v_dt=fld_val.dtype();
+                    int num_ele=v_dt.number_of_elements();
+                    int ele_size=v_dt.element_bytes();
+                    std::string var = itr.name();
+                    sprintf(var_name,"%s%s", var.c_str(), "/values");
+                    char l_str[100], g_str[100],o_str[100];
+                    sprintf (g_str, "%d", num_ele);
+                    sprintf (l_str, "%d", num_ele/par_size);
 
+                    int offset=m_rank*(num_ele/par_size);
+                    sprintf (o_str, "%d", offset);
+                    std::cout<<g_str<<" vbn "<<l_str<<"  "<<o_str<<"  "<< m_rank<<"\n";
+                    int64_t attribute_id = adios_define_attribute_byvalue(m_adios_group, var_name, "", adios_double, num_ele, (void *)fld_val.as_float64_ptr());
+                    int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
+                    adios_set_transform (var_id, "none");
+                    adios_write_byid(m_adios_file, var_id, (void *)fld_val.as_float64_ptr());
+                }
+		else{    
+                    std::cout<< "values children: " << fld["values"].number_of_children() << std::endl;
+                    NodeConstIterator field_itr = fld["values"].children();
+                    int i = 0;
+                    while(field_itr.has_next()){
+                        const Node &fld_val = field_itr.next();
+                        char var_name[50]="";
+                        DataType v_dt=fld_val.dtype();
+                        int num_ele=v_dt.number_of_elements();
+                        int ele_size=v_dt.element_bytes();
+                        std::string var = field_itr.name();
+                        std::cout <<"var_name" << var << std::endl;
+                        sprintf(var_name,"%s%d", var.c_str(), i);
+                        i++;
+                        char l_str[100], g_str[100],o_str[100];
+                        sprintf (g_str, "%d", num_ele);
+                        sprintf (l_str, "%d", num_ele/par_size);
 
-    const Node &val_data = data[options["selected_vals"].as_string()];
-    int child_count_val=val_data.number_of_children(); 
-    std::cout<< "child count val " << child_count_val << std::endl;
-    if(child_count_val == 0){
-            char var_name[50]="";
-            DataType v_dt=val_data.dtype();
-            int num_ele=v_dt.number_of_elements();
-            int ele_size=v_dt.element_bytes();
-            strcat(var_name, "val");
-            char         l_str[100], g_str[100],o_str[100];
-            sprintf (g_str, "%d", num_ele);
-            sprintf (l_str, "%d", num_ele/par_size);
+                        int offset=m_rank*(num_ele/par_size);
+                        sprintf (o_str, "%d", offset);
+                        std::cout<<g_str<<" vbn "<<l_str<<"  "<<o_str<<"  "<< m_rank<<"\n";
+                        int64_t attribute_id = adios_define_attribute_byvalue(m_adios_group, var_name, "", adios_double, num_ele, (void *)fld_val.as_float64_ptr());
+                        int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
+                        adios_set_transform (var_id, "none");
+                       // char dim[] ={10,10,10};
+                       // char axis[] = "XYZ";
+                       // const char mesh[] = "rectilinearmesh";
+                       // adios_define_mesh_rectilinear (dim, axis,"", m_adios_group , mesh);
 
-            int offset=m_rank*(num_ele/par_size);
-            sprintf (o_str, "%d", offset);
-            std::cout<<g_str<<" vbn "<<l_str<<"  "<<o_str<<"  "<< m_rank<<"\n";
-            int64_t attribute_id = adios_define_attribute_byvalue(m_adios_group, var_name, "", adios_double, num_ele, (void *)val_data.as_float64_ptr());
-            int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
-            adios_set_transform (var_id, "none");
-            char dim[] ={10,10,10};
-            char axis[] = "XYZ";
-            const char mesh[] = "rectilinearmesh";
-            adios_define_mesh_rectilinear (dim, axis,"", m_adios_group , mesh);
+                        adios_write_byid(m_adios_file, var_id, (void *)fld_val.as_float64_ptr());
+                        std::cout<<"after" << std::endl;
 
-            adios_write_byid(m_adios_file, var_id, (void *)val_data.as_float64_ptr());
-std::cout<<"after" << std::endl;
+                    }
+                }
+            }
+        }
+    }
 
-     }
-    if(child_count_val > 0){
-    	for (int i=0;i<child_count_val;i++)
-    	{
-            char var_name[50]="",t[5]="";
-            Node child_node=val_data.child(i);
-            DataType x_dt=child_node.dtype();
-            int num_ele=x_dt.number_of_elements();
-            int ele_size=x_dt.element_bytes();
-            sprintf(t, "%d", i);
-            strcat(var_name, "val");
-            strcat(var_name, t);
-            char         l_str[100], g_str[100],o_str[100];
-            sprintf (g_str, "%d", num_ele);
-            sprintf (l_str, "%d", num_ele/par_size);
-
-            int offset=m_rank*(num_ele/par_size);
-            sprintf (o_str, "%d", offset);
-            std::cout<<g_str<<" vbn "<<l_str<<"  "<<o_str<<"  "<< m_rank<<"\n";
-
-            int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
-            adios_set_transform (var_id, "none");
-
-
-            adios_write_byid(m_adios_file, var_id, (void *)child_node.as_float64_ptr());
-     	}
-     }
 
      adios_close (m_adios_file);
 
