@@ -172,7 +172,7 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
     adios_define_schema_version(m_adios_group, "1.12"); 
     const Node &x_data = data[options["coord_vals"].as_string()];
     int child_count=x_data.number_of_children(); 
-    
+    std::string var_mesh = "";
     NodeConstIterator itr = data["coordsets"].children();
     while(itr.has_next()){
          const Node &coordset = itr.next();
@@ -215,9 +215,10 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
                         }
                         sprintf(dims, "%d,%d,%d", dim_mesh[0],dim_mesh[1],dim_mesh[2]);
                 }
-                char type[100] = "";
-		sprintf(type, "%s", "uniformmesh");
-		adios_define_mesh_uniform(dims, orig, spacing, 0, 0, m_adios_group, type);
+		std::string type = "uniformmesh";
+		var_mesh = type;
+		adios_define_mesh_uniform(dims, orig, spacing, 0, 0, m_adios_group, type.c_str());
+		adios_define_mesh_timevarying ("no", m_adios_group, type.c_str());
          }
 	else if(coordset_type == "rectilinear"){
                 char dims[3] = "";
@@ -235,12 +236,12 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
 		else{
 			sprintf(dims, "%d,%d,%d", options["dim"].as_int32(),options["dim"].as_int32(),options["dim"].as_int32());
 		}
-                char type[100] = "";
-                sprintf(type, "%s", "rectilinearmesh");
-		char coordinates[100] = "";
-		sprintf(coordinates,"%s", "X,Y,Z");
-                adios_define_mesh_rectilinear(dims, coordinates, 0, m_adios_group, type);
-         }
+                std::string type = "rectilinearmesh";
+		var_mesh = type;
+		std::string coordinates = "xd,yd,zd";
+                adios_define_mesh_rectilinear(dims, "xd,yd,zd", 0, m_adios_group, type.c_str());
+		adios_define_mesh_timevarying ("no", m_adios_group, type.c_str());
+	}
          else
 		std::cout << "coordset type " << coordset_type <<std::endl;
          NodeConstIterator values_itr = coordset["values"].children();
@@ -252,15 +253,13 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
             int ele_size=x_dt.element_bytes();
             std::string c = itr.name();
 	    std::string var = values_itr.name();
-            sprintf(var_name,"%s/%s", c.c_str(), var.c_str());
+            sprintf(var_name,"coords_%s", var.c_str());
             char l_str[100], g_str[100],o_str[100];
             sprintf (g_str, "%d", num_ele);
             sprintf (l_str, "%d", num_ele/par_size);
 
             int offset=m_rank*(num_ele/par_size);
             sprintf (o_str, "%d", offset);
-            std::cout<<g_str<<" vbn "<<l_str<<"  "<<o_str<<"  "<< m_rank<<"\n";
-            int64_t attribute_id = adios_define_attribute_byvalue(m_adios_group, var_name, "", adios_double, num_ele, (void *)coords_values.as_float64_ptr());
             int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
             adios_set_transform (var_id, "none");
 
@@ -284,7 +283,7 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
                     int num_ele=v_dt.number_of_elements();
                     int ele_size=v_dt.element_bytes();
                     std::string var = itr.name();
-                    sprintf(var_name,"%s%s", var.c_str(), "/values");
+                    sprintf(var_name,"field_%s", var.c_str());
                     char l_str[100], g_str[100],o_str[100];
                     sprintf (g_str, "%d", num_ele);
                     sprintf (l_str, "%d", num_ele/par_size);
@@ -292,15 +291,19 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
                     int offset=m_rank*(num_ele/par_size);
                     sprintf (o_str, "%d", offset);
                     std::cout<<g_str<<" vbn "<<l_str<<"  "<<o_str<<"  "<< m_rank<<"\n";
+                    int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
+		    adios_define_var_mesh(m_adios_group, var_name,var_mesh.c_str()); 
                     if(fld.has_child("association")){
 			std::string association = fld["association"].as_string();
                         if(association == "vertex"){
 				std::string assoc = "point";
 				adios_define_var_centering(m_adios_group, var_name, assoc.c_str());
+			}
+			else{
+				std::string assoc = "cell";
+				adios_define_var_centering(m_adios_group, var_name, assoc.c_str());
 			}		
                     }
-                    int64_t attribute_id = adios_define_attribute_byvalue(m_adios_group, var_name, "", adios_double, num_ele, (void *)fld_val.as_float64_ptr());
-                    int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
                     adios_set_transform (var_id, "none");
                     adios_write_byid(m_adios_file, var_id, (void *)fld_val.as_float64_ptr());
                 }
@@ -315,6 +318,7 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
                         int ele_size=v_dt.element_bytes();
                         std::string var = field_itr.name();
                         sprintf(var_name,"%s%d", var.c_str(), i);
+                        std::cout << "var name here: " << var_name << std::endl;
                         i++;
                         char l_str[100], g_str[100],o_str[100];
                         sprintf (g_str, "%d", num_ele);
@@ -323,7 +327,6 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
                         int offset=m_rank*(num_ele/par_size);
                         sprintf (o_str, "%d", offset);
                         std::cout<<g_str<<" vbn "<<l_str<<"  "<<o_str<<"  "<< m_rank<<"\n";
-                        int64_t attribute_id = adios_define_attribute_byvalue(m_adios_group, var_name, "", adios_double, num_ele, (void *)fld_val.as_float64_ptr());
                         int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
                         adios_set_transform (var_id, "none");
                        // char dim[] ={10,10,10};
