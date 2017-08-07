@@ -159,7 +159,6 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
 #ifdef PARALLEL
     adios_init_noxml (m_mpi_comm);
     adios_set_max_buffer_size (10);
-    std::cout << "dim " << options["dim"].as_int32() << std::endl;
 
     int par_size;
     MPI_Comm_size(m_mpi_comm, &par_size);
@@ -169,9 +168,7 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
     char        filename [100];    
     strcpy (filename, options["output_path"].as_char8_str());
     adios_open (&m_adios_file, "test_data", filename, "w", m_mpi_comm);
-    adios_define_schema_version(m_adios_group, "1.12"); 
-    const Node &x_data = data[options["coord_vals"].as_string()];
-    int child_count=x_data.number_of_children(); 
+    adios_define_schema_version(m_adios_group, "1.1"); 
     std::string var_mesh = "";
     NodeConstIterator itr = data["coordsets"].children();
     while(itr.has_next()){
@@ -214,13 +211,35 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
                                 dim_mesh[i++] = d;
                         }
                         sprintf(dims, "%d,%d,%d", dim_mesh[0],dim_mesh[1],dim_mesh[2]);
+			std::cout << "dimensions : " << dims << std::endl;
                 }
 		std::string type = "uniformmesh";
 		var_mesh = type;
-		adios_define_mesh_uniform(dims, orig, spacing, 0, 0, m_adios_group, type.c_str());
+		adios_define_mesh_uniform(dims, orig, spacing, 0, "3", m_adios_group, "uniformmesh");
 		adios_define_mesh_timevarying ("no", m_adios_group, type.c_str());
          }
 	else if(coordset_type == "rectilinear"){
+	        NodeConstIterator values_itr = coordset["values"].children();
+        	 while(values_itr.has_next()){
+            		const Node &coords_values = values_itr.next();
+            		char var_name[50]="";
+            		DataType x_dt=coords_values.dtype();
+            		int num_ele=x_dt.number_of_elements();
+            		int ele_size=x_dt.element_bytes();
+           		std::string c = itr.name();
+            		std::string var = values_itr.name();
+            		sprintf(var_name,"coords_%s", var.c_str());
+            		char l_str[100], g_str[100],o_str[100];
+            		sprintf (g_str, "%d", num_ele);
+            		sprintf (l_str, "%d", num_ele/par_size);
+
+            		int offset=m_rank*(num_ele/par_size);
+            		sprintf (o_str, "%d", offset);
+            		int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, "32,32,32","32,32,32","0");
+            		adios_set_transform (var_id, "none");
+            		adios_write_byid(m_adios_file, var_id, (void *)coords_values.as_float64_ptr());
+        	}
+
                 char dims[3] = "";
                 int dim_mesh[3];
               if(coordset.has_child("dims")){
@@ -238,34 +257,12 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
 		}
                 std::string type = "rectilinearmesh";
 		var_mesh = type;
-		std::string coordinates = "xd,yd,zd";
-                adios_define_mesh_rectilinear(dims, "xd,yd,zd", 0, m_adios_group, type.c_str());
 		adios_define_mesh_timevarying ("no", m_adios_group, type.c_str());
+		std::string coordinates = "xd";
+                adios_define_mesh_rectilinear("1331", "coords_x", 0, m_adios_group, type.c_str());
 	}
          else
 		std::cout << "coordset type " << coordset_type <<std::endl;
-         NodeConstIterator values_itr = coordset["values"].children();
-         while(values_itr.has_next()){
-            const Node &coords_values = values_itr.next();
-            char var_name[50]="",t[5]="";
-            DataType x_dt=coords_values.dtype();
-            int num_ele=x_dt.number_of_elements();
-            int ele_size=x_dt.element_bytes();
-            std::string c = itr.name();
-	    std::string var = values_itr.name();
-            sprintf(var_name,"coords_%s", var.c_str());
-            char l_str[100], g_str[100],o_str[100];
-            sprintf (g_str, "%d", num_ele);
-            sprintf (l_str, "%d", num_ele/par_size);
-
-            int offset=m_rank*(num_ele/par_size);
-            sprintf (o_str, "%d", offset);
-            int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
-            adios_set_transform (var_id, "none");
-
-
-            adios_write_byid(m_adios_file, var_id, (void *)coords_values.as_float64_ptr());  
-        }
     }
     if (data.has_child("fields")){
         itr = data["fields"].children();
@@ -281,18 +278,18 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
                     char var_name[50]="";
                     DataType v_dt=fld_val.dtype();
                     int num_ele=v_dt.number_of_elements();
+		    std::cout << "n ele " << num_ele << std::endl;
                     int ele_size=v_dt.element_bytes();
                     std::string var = itr.name();
                     sprintf(var_name,"field_%s", var.c_str());
                     char l_str[100], g_str[100],o_str[100];
                     sprintf (g_str, "%d", num_ele);
                     sprintf (l_str, "%d", num_ele/par_size);
-
                     int offset=m_rank*(num_ele/par_size);
                     sprintf (o_str, "%d", offset);
                     std::cout<<g_str<<" vbn "<<l_str<<"  "<<o_str<<"  "<< m_rank<<"\n";
-                    int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
-		    adios_define_var_mesh(m_adios_group, var_name,var_mesh.c_str()); 
+                    int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, "33,33,33","33,33,33","0");
+		    adios_define_var_mesh(m_adios_group, var_name,var_mesh.c_str());
                     if(fld.has_child("association")){
 			std::string association = fld["association"].as_string();
                         if(association == "vertex"){
@@ -401,7 +398,6 @@ AdiosPipeline::Initialize(const conduit::Node &options)
 #else
     m_io = new IOManager();
 #endif
-std::cout<<"HERE"<<std::endl;
 
 }
 

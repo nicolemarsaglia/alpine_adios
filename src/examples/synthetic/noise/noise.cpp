@@ -243,7 +243,8 @@ struct DataSet
                 0. + double(div.m_mins[2]) * m_spacing[2]}
 
    {
-     m_nodal_scalars = new double[m_point_size]; 
+     m_nodal_scalars = new double[m_point_size];
+	int point = m_point_size;
      m_zonal_scalars = new double[m_cell_size]; 
    }    
 
@@ -289,7 +290,7 @@ struct DataSet
       node["fields/nodal_noise/association"] = "vertex";
       node["fields/nodal_noise/type"]        = "scalar";
       node["fields/nodal_noise/topology"]    = "mesh";
-      node["fields/nodal_noise/values"].set_external(m_nodal_scalars);
+      node["fields/nodal_noise/values"].set_external(m_nodal_scalars,m_point_size);
    }
 
    void Print()
@@ -434,7 +435,8 @@ int main(int argc, char** argv)
 #ifdef PARALLEL
   alpine_opts["mpi_comm"] = MPI_Comm_c2f(MPI_COMM_WORLD);
 #endif
-  alpine_opts["pipeline/type"] = "vtkm";
+//  alpine_opts["pipeline/type"] = "vtkm";
+  alpine_opts["pipeline/type"] = "adios";
   alpine.Open(alpine_opts);
 
 
@@ -475,6 +477,8 @@ int main(int argc, char** argv)
         //
         // Create actions.
         //
+        //vtkm
+  /*      
         conduit::Node actions;
         conduit::Node &add = actions.append();
         add["action"] = "add_plot";
@@ -482,10 +486,23 @@ int main(int argc, char** argv)
         conduit::Node &draw = actions.append();
         std::stringstream ss;
         ss<<"smooth_noise_"<<t;
-        add["render_options/file_name"] = ss.str();
+            char path[100];
+            sprintf(path, "%s%f", "/ccs/home/nic8504/rhea/smooth_noise",alpine_node["state/time"].as_float64());
+        add["render_options/file_name"] = path;
         add["render_options/width"]  = 1024;
         add["render_options/height"] = 1024;
         draw["action"] = "draw_plots";
+*/
+
+            conduit::Node actions;
+            conduit::Node &save = actions.append();
+            save["action"] = "save";
+   std::cout<<"HERE IN NOISE"<<std::endl;
+            char path[100];
+            sprintf(path, "%s%f%s", "/ccs/home/nic8504/rhea/noise",alpine_node["state/time"].as_float64(), ".bp");
+            save["output_path"] = path;
+            save.print();
+            actions.print();
         alpine.Publish(alpine_node);
         alpine.Execute(actions);
       } //for each time step
