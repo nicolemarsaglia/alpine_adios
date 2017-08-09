@@ -235,7 +235,7 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
                         
                         int offset=m_rank*(num_ele/par_size);
                         sprintf (o_str, "%d", offset);
-                        int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, "32,32,32","32,32,32","0");
+                        int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
                         adios_set_transform (var_id, "none");
                         adios_write_byid(m_adios_file, var_id, (void *)coords_values.as_float64_ptr());
                 }
@@ -288,7 +288,7 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
                     int offset=m_rank*(num_ele/par_size);
                     sprintf (o_str, "%d", offset);
                     std::cout<<g_str<<" vbn "<<l_str<<"  "<<o_str<<"  "<< m_rank<<"\n";
-                    int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, "33,33,33","33,33,33","0");
+                    int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str, o_str);
 		    adios_define_var_mesh(m_adios_group, var_name,var_mesh.c_str());
                     if(fld.has_child("association")){
 			std::string association = fld["association"].as_string();
