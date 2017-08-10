@@ -163,8 +163,10 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
     int par_size;
     MPI_Comm_size(m_mpi_comm, &par_size);
     adios_declare_group (&m_adios_group,"test_data", "iter", adios_stat_default);
+    //adios_select_method (m_adios_group, "DATASPACES", "", "");
     adios_select_method (m_adios_group, "MPI", "", "");
    
+    
     char        filename [100];    
     strcpy (filename, options["output_path"].as_char8_str());
     adios_open (&m_adios_file, "test_data", filename, "w", m_mpi_comm);
@@ -250,16 +252,16 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
                                 double d = dim.as_int32();
                                 dim_mesh[i++] = d;
                         }
-                        sprintf(dims, "%d%d%d", dim_mesh[0],dim_mesh[1],dim_mesh[2]);
+                        sprintf(dims, "%d,%d,%d", dim_mesh[0],dim_mesh[1],dim_mesh[2]);
                 }
                 else{   
-                        sprintf(dims, "%d,%d,%d", options["dim"].as_int32(),options["dim"].as_int32(),options["dim"].as_int32());
+                        ;//sprintf(dims, "%d,%d,%d", options["dim"].as_int32(),options["dim"].as_int32(),options["dim"].as_int32());
                 }
                 std::string type = "rectilinearmesh";
                 var_mesh = type;
                 adios_define_mesh_timevarying ("no", m_adios_group, type.c_str());
                 std::string coordinates = "xd";
-                adios_define_mesh_rectilinear("1331", "coords_x", 0, m_adios_group, type.c_str());
+                adios_define_mesh_rectilinear(dims, "coords_x,coords_y,coords_z", 0, m_adios_group, type.c_str());
         }
          else   
                 std::cout << "coordset type " << coordset_type <<std::endl;
@@ -338,6 +340,13 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
             }
         }
     }
+    if (options.has_child("render")){
+	std::string render = options["render"].as_string();
+	std::cout << "in render!!!!!!!!!!!!" << std::endl;
+	adios_define_attribute(m_adios_group, "render", "", adios_string, render.c_str(),"");
+	   	
+    }
+//                adios_define_mesh_rectilinear("11,11,11", "coords_x,coords_y,coords_z", 0, m_adios_group, "rectilinearmesh");
 
      adios_close (m_adios_file);
 
