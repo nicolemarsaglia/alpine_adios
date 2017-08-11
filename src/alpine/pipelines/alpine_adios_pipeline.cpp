@@ -341,10 +341,21 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
         }
     }
     if (options.has_child("render")){
-	std::string render = options["render"].as_string();
-	std::cout << "in render!!!!!!!!!!!!" << std::endl;
+	const Node &renderer = options["render"];
+	std::string render = renderer["type"].as_string();
 	adios_define_attribute(m_adios_group, "render", "", adios_string, render.c_str(),"");
-	   	
+	if (render == "isovalue"){
+		const Node &iso  = renderer["values"];
+		DataType iso_val = iso.dtype();
+                int num_ele      = iso_val.number_of_elements();
+		adios_define_attribute_byvalue(m_adios_group, "isovalues", "", adios_double, num_ele, (void *) iso.as_float64_ptr());
+	}   
+        if (render == "isosurface"){
+                const Node &iso  = renderer["values"];
+                DataType iso_val = iso.dtype();
+                int num_ele      = iso_val.number_of_elements();
+                adios_define_attribute_byvalue(m_adios_group, "isosurface values", "", adios_double, num_ele, (void *) iso.as_float64_ptr());
+        }  	
     }
 //                adios_define_mesh_rectilinear("11,11,11", "coords_x,coords_y,coords_z", 0, m_adios_group, "rectilinearmesh");
 
