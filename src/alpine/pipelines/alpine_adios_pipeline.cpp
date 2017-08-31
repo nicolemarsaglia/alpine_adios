@@ -270,9 +270,9 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
                         std::string c = itr.name();
                         std::string var = values_itr.name();
                         sprintf(var_name,"coords_%s", var.c_str());
-                        int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
-                        adios_set_transform (var_id, "none");
-                        adios_write_byid(m_adios_file, var_id, (void *)coords_values.as_float64_ptr());
+                        //int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
+                        //adios_set_transform (var_id, "none");
+                        //adios_write_byid(m_adios_file, var_id, (void *)coords_values.as_float64_ptr());
                 }
                //TODO: Global dimensions 
               if(coordset.has_child("dims")){
