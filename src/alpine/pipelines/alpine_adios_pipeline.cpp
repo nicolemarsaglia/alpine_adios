@@ -176,10 +176,10 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
     cout << "rank " << m_rank << endl;
 
     //Spacing, dims, orig are local
-    char spacing[3] = "";
+    char* sp;
     string space;
     char dims[3] = "";
-    char orig[3] = "";
+    char *orig;
 
     //global dim & g_dim and global origin & g_origin are global
     char global_dim[3] = "";
@@ -203,44 +203,68 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
          std::string coordset_type = coordset["type"].as_string();
          if(coordset_type == "uniform"){
                 if(coordset.has_child("spacing")){
-                        NodeConstIterator space_itr = coordset["spacing"].children();
-                        int i = 0;
-                        while(space_itr.has_next()){
-                                const Node &space = space_itr.next();
-                                double s = space.as_float64();
-                                space_mesh[i++] = s;
+			const Node &spacing = coordset["spacing"];
+			if(spacing.has_child("dx")){
+				space_mesh[0] = spacing["dx"].to_float64();
+			}
+                        if(spacing.has_child("dy")){
+                                space_mesh[1] = spacing["dy"].to_float64();
                         }
-                        //sprintf(spacing, "%.04f,%.04f,%.04f", space_mesh[0],space_mesh[1],space_mesh[2]);
-                        stringstream ss;
+                        if(spacing.has_child("dz")){
+                                space_mesh[2] = spacing["dz"].to_float64();
+                        }
+			stringstream ss;
+			ss << space_mesh[0] << "," << space_mesh[1] << "," << space_mesh[2];
                 	space = ss.str();
+                        cout << "rank: " << m_rank << " SPACING: " << space<<endl;
+			sp = new char[space.length() + 1];
+			strcpy(sp, space.c_str());
 		}
                 if(coordset.has_child("origin")){
-                        NodeConstIterator origin_itr = coordset["origin"].children();
-                        int i = 0;
-                        while(origin_itr.has_next()){
-                                const Node &origin = origin_itr.next();
-                                double o = origin.as_float64();
-                                local_origin[i] = o/space_mesh[i];
- 				i++;
+        		const Node &origin = coordset["origin"];
+			if(origin.has_child("x")){
+				double o = origin["x"].as_float64();
+				local_origin[0] = o/space_mesh[0];
+			}                
+			if(origin.has_child("y")){             
+                                double o = origin["y"].as_float64();
+                                local_origin[1] = o/space_mesh[1];
                         }
+			if(origin.has_child("z")){             
+                                double o = origin["z"].as_float64();
+                                local_origin[2] = o/space_mesh[2];
+                        }  	
+			
 			MPI_Reduce(local_origin,g_origin,3, MPI_DOUBLE,MPI_MIN,0,MPI_COMM_WORLD);
 			if(m_rank == 0){ 
-                        	sprintf(global_origin, "%d,%d,%d", (int)g_origin[0], (int)g_origin[1], (int)g_origin[2]);
-                        	//sprintf(global_origin, "%f,%f,%f", g_origin[0], g_origin[1], g_origin[2]);
+                        	sprintf(global_origin, "%f,%f,%f", g_origin[0], g_origin[1], g_origin[2]);
 			}
-			sprintf(orig, "%d,%d,%d", (int)local_origin[0],(int)local_origin[1],(int)local_origin[2]);
-			//sprintf(orig, "%f,%f,%f", local_origin[0],local_origin[1],local_origin[2]);
-              }
+			stringstream ss;
+			ss << local_origin[0] << "," << local_origin[1] << "," << local_origin[2];
+			string o = ss.str();
+			orig = new char[o.length() + 1];
+			strcpy(orig, o.c_str());
+			//sprintf(orig, "%d,%d,%d", (int)local_origin[0],(int)local_origin[1],(int)local_origin[2]);
+              		cout << "ORIGIN: " << orig << endl;
+		}
               if(coordset.has_child("dims")){
-                        NodeConstIterator dim_itr = coordset["dims"].children();
-                        int i = 0;
-                        while(dim_itr.has_next()){
-                                const Node &dim = dim_itr.next();
-                                int d = dim.as_int32();
-				max_dim[i] = d + (int)local_origin[i];
-                                local_dim[i++] = d;
-               //                 cout << "dim " << d << endl;
+                        const Node &dimensions = coordset["dims"];
+			if(dimensions.has_child("i")){
+				int d = dimensions["i"].as_int32();
+				max_dim[0] = d + (int)local_origin[0];
+				local_dim[0] = d;
+			}
+                        if(dimensions.has_child("j")){
+                                int d = dimensions["j"].as_int32();
+                                max_dim[1] = d + (int)local_origin[1];
+                                local_dim[1] = d;
                         }
+                        if(dimensions.has_child("k")){
+                                int d = dimensions["k"].as_int32();
+                                max_dim[2] = d + (int)local_origin[2];
+                                local_dim[2] = d;
+                        }
+
                         sprintf(dims, "%d,%d,%d", local_dim[0],local_dim[1],local_dim[2]);
 			MPI_Allreduce(max_dim,g_dim,3, MPI_INT,MPI_MAX,MPI_COMM_WORLD);
                 	sprintf(global_dim, "%d,%d,%d", g_dim[0], g_dim[1], g_dim[2]);
@@ -252,8 +276,6 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
 			cout << "mesh dimensions: " << global_dim << endl;
 			cout << "mesh origin: " << global_origin << endl;
 			cout << "mesh spacing: " << space << endl;
-			char *sp = new char[space.length() + 1];
-			strcpy(sp, space.c_str());
                 	adios_define_mesh_uniform(global_dim, global_origin, sp, 0, "3", m_adios_group, "uniformmesh");
                 	adios_define_mesh_timevarying ("no", m_adios_group, type.c_str());
 		}
@@ -267,12 +289,15 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
                         DataType x_dt=coords_values.dtype();
                         int num_ele=x_dt.number_of_elements();
                         int ele_size=x_dt.element_bytes();
+			cout << "number data type of coords " << num_ele<<endl;
+			coords_values.print();
                         std::string c = itr.name();
                         std::string var = values_itr.name();
                         sprintf(var_name,"coords_%s", var.c_str());
-                        //int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
-                        //adios_set_transform (var_id, "none");
-                        //adios_write_byid(m_adios_file, var_id, (void *)coords_values.as_float64_ptr());
+			//need local length of coords and global length.
+                        int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, "13","13","");
+                        adios_set_transform (var_id, "none");
+                        adios_write_byid(m_adios_file, var_id, (void *)coords_values.as_float64_ptr());
                 }
                //TODO: Global dimensions 
               if(coordset.has_child("dims")){
@@ -297,7 +322,9 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
          else   
                 std::cout << "coordset type " << coordset_type <<std::endl;
     }
+    //TODO: need dims to reflect cell or vertex centering of field
     if(data.has_child("fields")){
+        cout << "in fields" << endl;
         string field_name = options["field_name"].as_string();
         const Node &fld = data["fields"][field_name];
         if (fld.has_child("values")){
@@ -310,8 +337,8 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
                     std::string var = itr.name();
                     sprintf(var_name,"field_%s", var.c_str());
                     //std::cout<<g_str<<" vbn "<<l_str<<"  "<<o_str<<"  "<< m_rank<<"\n";
-                    int64_t var_id = adios_define_var (m_adios_group, field_name.c_str(),"", adios_double, dims ,global_dim, orig);
-                    cout << "rank: " << m_rank << " l di: " << dims << " g dim: " << global_dim << " orig/offset: " << orig << endl;
+                    int64_t var_id = adios_define_var (m_adios_group, field_name.c_str(),"", adios_double, "12,12,12" ,global_dim, orig);
+                    cout << "rank: " << m_rank << " l di: " << dims << " g dim: " << global_dim << " orig/offset: " << orig <<" spacing " << sp<< endl;
 			adios_define_attribute(m_adios_group, "field_name", "", adios_string, field_name.c_str(),"");
                     adios_define_var_mesh(m_adios_group, field_name.c_str(),var_mesh.c_str());
                     if(fld.has_child("association")){
@@ -330,6 +357,11 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
 	}
 
     }
+//=======CLEANUP =======
+
+//delete sp;
+
+
 /*
     if (data.has_child("fields")){
         itr = data["fields"].children();
