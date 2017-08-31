@@ -275,7 +275,7 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
 			cout << "defining uniform mesh" << endl;
 			cout << "mesh dimensions: " << global_dim << endl;
 			cout << "mesh origin: " << global_origin << endl;
-			cout << "mesh spacing: " << space << endl;
+			cout << "mesh spacing: " << sp << endl;
                 	adios_define_mesh_uniform(global_dim, global_origin, sp, 0, "3", m_adios_group, "uniformmesh");
                 	adios_define_mesh_timevarying ("no", m_adios_group, type.c_str());
 		}
@@ -337,7 +337,7 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
                     std::string var = itr.name();
                     sprintf(var_name,"field_%s", var.c_str());
                     //std::cout<<g_str<<" vbn "<<l_str<<"  "<<o_str<<"  "<< m_rank<<"\n";
-                    int64_t var_id = adios_define_var (m_adios_group, field_name.c_str(),"", adios_double, "12,12,12" ,global_dim, orig);
+                    int64_t var_id = adios_define_var (m_adios_group, field_name.c_str(),"", adios_double, dims ,global_dim, orig);
                     cout << "rank: " << m_rank << " l di: " << dims << " g dim: " << global_dim << " orig/offset: " << orig <<" spacing " << sp<< endl;
 			adios_define_attribute(m_adios_group, "field_name", "", adios_string, field_name.c_str(),"");
                     adios_define_var_mesh(m_adios_group, field_name.c_str(),var_mesh.c_str());
