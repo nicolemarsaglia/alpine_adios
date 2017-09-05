@@ -263,21 +263,26 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
 				int d = dimensions["i"].as_int32();
 				max_dim[0] = d + (int)local_origin[0];
 				local_dim[0] = d;
+				cell_l_dim[0] = d - 1;				
 			}
                         if(dimensions.has_child("j")){
                                 int d = dimensions["j"].as_int32();
                                 max_dim[1] = d + (int)local_origin[1];
                                 local_dim[1] = d;
+				cell_l_dim[1] = d - 1;				
                         }
                         if(dimensions.has_child("k")){
                                 int d = dimensions["k"].as_int32();
                                 max_dim[2] = d + (int)local_origin[2];
                                 local_dim[2] = d;
+				cell_l_dim[2] = d - 1;				
                         }
 
                         sprintf(dims, "%d,%d,%d", local_dim[0],local_dim[1],local_dim[2]);
+                        sprintf(cell_local_dims, "%d,%d,%d", cell_l_dim[0],cell_l_dim[1],cell_l_dim[2]);
 			MPI_Allreduce(max_dim,g_dim,3, MPI_INT,MPI_MAX,MPI_COMM_WORLD);
                 	sprintf(global_dim, "%d,%d,%d", g_dim[0], g_dim[1], g_dim[2]);
+                	sprintf(global_dim, "%d,%d,%d", g_dim[0] - 1, g_dim[1] - 1, g_dim[2] - 1);
 		}
                 std::string type = "uniformmesh";
                 var_mesh = type;
@@ -559,86 +564,7 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
 	}
 
     }
-//=======CLEANUP =======
-
-//delete sp;
-
-
-/*
-    if (data.has_child("fields")){
-        itr = data["fields"].children();
-        int j = 0;
-        while(itr.has_next()){
-            const Node &fld = itr.next();
-            std:string fld_name = itr.name();
-            index_t ncomps = 1;
-
-            if(fld.has_child("values")){
-                if(fld["values"].dtype().is_float64()){
-                    const Node &fld_val = fld["values"];
-                    char var_name[50]="";
-                    DataType v_dt=fld_val.dtype();
-                    int num_ele=v_dt.number_of_elements();
-		    std::cout << "n ele " << num_ele << std::endl;
-                    int ele_size=v_dt.element_bytes();
-                    std::string var = itr.name();
-                    sprintf(var_name,"field_%s", var.c_str());
-                    char l_str[100], g_str[100],o_str[100];
-                    sprintf (g_str, "%d", num_ele);
-                    sprintf (l_str, "%d", num_ele/par_size);
-                    int offset=m_rank*(num_ele/par_size);
-                    sprintf (o_str, "%d", offset);
-                    std::cout<<g_str<<" vbn "<<l_str<<"  "<<o_str<<"  "<< m_rank<<"\n";
-                    int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str, o_str);
-		    adios_define_var_mesh(m_adios_group, var_name,var_mesh.c_str());
-                    if(fld.has_child("association")){
-			std::string association = fld["association"].as_string();
-                        if(association == "vertex"){
-				std::string assoc = "point";
-				adios_define_var_centering(m_adios_group, var_name, assoc.c_str());
-			}
-			else{
-				std::string assoc = "cell";
-				adios_define_var_centering(m_adios_group, var_name, assoc.c_str());
-			}		
-                    }
-                    //adios_set_transform (var_id, "none");
-                    adios_write(m_adios_file, var_name, (void *)fld_val.as_float64_ptr());
-                }
-		else{    
-                    NodeConstIterator field_itr = fld["values"].children();
-                    int i = 0;
-                    while(field_itr.has_next()){
-                        const Node &fld_val = field_itr.next();
-                        char var_name[50]="";
-                        DataType v_dt=fld_val.dtype();
-                        int num_ele=v_dt.number_of_elements();
-                        int ele_size=v_dt.element_bytes();
-                        std::string var = field_itr.name();
-                        sprintf(var_name,"%s%d", var.c_str(), i);
-                        std::cout << "var name here: " << var_name << std::endl;
-                        i++;
-                        char l_str[100], g_str[100],o_str[100];
-                        sprintf (g_str, "%d", num_ele);
-                        sprintf (l_str, "%d", num_ele/par_size);
-
-                        int offset=m_rank*(num_ele/par_size);
-                        sprintf (o_str, "%d", offset);
-                        std::cout<<g_str<<" vbn "<<l_str<<"  "<<o_str<<"  "<< m_rank<<"\n";
-                        int64_t var_id = adios_define_var (m_adios_group, var_name,"", adios_double, l_str,g_str,o_str);
-                        adios_set_transform (var_id, "none");
-                       // char dim[] ={10,10,10};
-                       // char axis[] = "XYZ";
-                       // const char mesh[] = "rectilinearmesh";
-                       // adios_define_mesh_rectilinear (dim, axis,"", m_adios_group , mesh);
-
-                        adios_write_byid(m_adios_file, var_id, (void *)fld_val.as_float64_ptr());
-
-                    }
-                }
-            }
-        }
-    }*/
+    
     if (options.has_child("render")){
 	const Node &renderer = options["render"];
 	std::string render = renderer["type"].as_string();
