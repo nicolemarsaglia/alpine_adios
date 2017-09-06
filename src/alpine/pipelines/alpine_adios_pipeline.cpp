@@ -182,7 +182,7 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
     string space;
     char dims[3] = "";
     char* orig;
-    char cell_orig[3] = "";
+    char* cell_orig;
     char cell_local_dims[3] = "";
 
     //global dim & g_dim and global origin & g_origin are global
@@ -254,6 +254,22 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
 			string o = ss.str();
 			orig = new char[o.length() + 1];
 			strcpy(orig, o.c_str());
+			stringstream cell_ss;
+			if(local_origin[0] != 0)
+				cell_ss << local_origin[0] - 1 << ",";
+			else
+				cell_ss << local_origin[0] << ",";
+			if(local_origin[1] != 0)
+				cell_ss << local_origin[1] - 1 << ",";
+			else
+				cell_ss << local_origin[1] << ",";
+			if(local_origin[2] != 0)
+				cell_ss << local_origin[2] - 1;
+			else
+				cell_ss << local_origin[2];
+			string cell_o = cell_ss.str();
+			cell_orig = new char[cell_o.length() + 1];
+			strcpy(cell_orig, cell_o.c_str());
 			//sprintf(orig, "%d,%d,%d", (int)local_origin[0],(int)local_origin[1],(int)local_origin[2]);
               		cout << "ORIGIN: " << orig << endl;
 		}
@@ -298,9 +314,6 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
         }
         else if(coordset_type == "rectilinear"){
 		int sum_dim[3];
-		const double * x;
-		const double * y;
-		const double * z;
 		if(coordset.has_child("values")){
 			const Node &coord_values = coordset["values"];
 			if(coord_values.has_child("x")){
@@ -312,8 +325,12 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
 				cout << "number of x coords " << num_ele<<endl;
 				local_dim[0] = num_ele;
 				cell_l_dim[0] = num_ele - 1;
+				char x_size[1] = "";
+				sprintf(x_size, "%d", num_ele);
 				coord_values.print();
-				x = x_coords.as_float64_ptr();
+                      		int64_t x_id = adios_define_var (m_adios_group, "coords_x","", adios_double, x_size,"","");
+                        	adios_set_transform (x_id, "none");
+                        	adios_write_byid(m_adios_file, x_id, (void *)x_coords.as_float64_ptr());
 				
 			}
 			if(coord_values.has_child("y")){
@@ -325,8 +342,12 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
 				cout << "number of y coords " << num_ele<<endl;
 				local_dim[1] = num_ele;
 				cell_l_dim[1] = num_ele - 1;
+				char y_size[1] = "";
+				sprintf(y_size, "%d", num_ele);
 				coord_values.print();
-				y = y_coords.as_float64_ptr();
+				int64_t y_id = adios_define_var (m_adios_group, "coords_y","", adios_double, y_size,"","");
+                        	adios_set_transform (y_id, "none");
+                        	adios_write_byid(m_adios_file, y_id, (void *)y_coords.as_float64_ptr());
 			}
 			if(coord_values.has_child("z")){
 				cout << "HAS Z CHILD" << endl;
@@ -337,136 +358,15 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
 				cout << "number  of z coords " << num_ele<<endl;
 				local_dim[2] = num_ele;
 				cell_l_dim[2] = num_ele - 1;
+				char z_size[1] = "";
+				sprintf(z_size, "%d", num_ele);
 				coord_values.print();
 				//need local length of coords and global length.
-				z = z_coords.as_float64_ptr();
+				int64_t z_id = adios_define_var (m_adios_group, "coords_z","", adios_double, z_size,"","");
+                       		adios_set_transform (z_id, "none");
+                       		adios_write_byid(m_adios_file, z_id, (void *)z_coords.as_float64_ptr());
 			}
 		}
-		int max_dim[3];
-		char m_dim[3];
-		MPI_Allreduce(local_dim,max_dim,3, MPI_INT,MPI_MAX,MPI_COMM_WORLD);
-		int x_max = max_dim[0], y_max = max_dim[1], z_max = max_dim[2];
-		int x_allocate = x_max * par_size;
-		int y_allocate = y_max * par_size;
-		int z_allocate = z_max * par_size;
-		cout << "x allocate : " << x_allocate << endl;
-
-		double *x_local = new double[x_allocate];
-		double *y_local = new double[y_allocate];
-		double *z_local = new double[z_allocate];
-		double *x_array = new double[x_allocate];
-		double *y_array = new double[y_allocate];
-		double *z_array = new double[z_allocate];
-
-		for (int i = 0; i < x_allocate; i++)
-			x_local[i] = 0.0;
-		for (int i = 0; i < y_allocate; i++)
-			y_local[i] = 0.0;
-		for (int i = 0; i < z_allocate; i++)
-			z_local[i] = 0.0;
-
-                int x_offset = m_rank*max_dim[0];
-		int y_offset = m_rank*max_dim[1];
-		int z_offset = m_rank*max_dim[2];
-
-		
-		for(int i = 0; i < max_dim[0]; i++){
-			if (i < local_dim[0])
-				x_local[i+x_offset] = x[i];
-			else
-				x_local[i+x_offset] = x_local[0];
-		}			
-		for(int i = 0; i < max_dim[1]; i++){
-			if (i < local_dim[1])
-				y_local[i+y_offset] = y[i];
-			else
-				y_local[i+y_offset] = y_local[0];
-		}			
-		for(int i = 0; i < max_dim[2]; i++){
-			if (i < local_dim[2])
-				z_local[i+z_offset] = z[i];
-			else
-				z_local[i+z_offset] = z_local[0];
-		}		
-			
-		MPI_Allreduce(x_local,x_array,x_allocate, MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
-		MPI_Allreduce(y_local,y_array,y_allocate, MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
-		MPI_Allreduce(z_local,z_array,z_allocate, MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
-	
-		vector<double> x_vec(x_array, x_array + x_allocate);
-		vector<double> y_vec(y_array, y_array + y_allocate);
-		vector<double> z_vec(z_array, z_array + z_allocate);
-	
-		sort(x_vec.begin(), x_vec.end());
-		sort(y_vec.begin(), y_vec.end());
-		sort(z_vec.begin(), z_vec.end());
-		
-		vector<double> x_final;	
-		vector<double> y_final;	
-		vector<double> z_final;	
-	
-		for(int i = 0; i < x_vec.size(); i++){
-			if(i == 0)
-				x_final.push_back(x_vec[i]);
-			else{
-				if(x_vec[i-1] != x_vec[i])
-					x_final.push_back(x_vec[i]);
-			}
-		}
-		for(int i = 0; i < y_vec.size(); i++){
-			if(i == 0)
-				y_final.push_back(y_vec[i]);
-			else{
-				if(y_vec[i-1] != y_vec[i])
-					y_final.push_back(y_vec[i]);
-			}
-		}
-		for(int i = 0; i < z_vec.size(); i++){
-			if(i == 0)
-				z_final.push_back(z_vec[i]);
-			else{
-				if(z_vec[i-1] != z_vec[i])
-					z_final.push_back(z_vec[i]);
-			}
-		}
-
-		g_dim[0] = x_final.size();
-		g_dim[1] = y_final.size();
-		g_dim[2] = z_final.size();
-		sprintf(global_dim, "%d,%d,%d", g_dim[0], g_dim[1], g_dim[2]);
-		cell_g_dim[0] = x_final.size() - 1;
-		cell_g_dim[1] = y_final.size() - 1;
-		cell_g_dim[2] = z_final.size() - 1;
-		sprintf(cell_global_dim, "%d,%d,%d", cell_g_dim[0], cell_g_dim[1], cell_g_dim[2]);
-		
-		double x_array_final[x_final.size()];	
-		double y_array_final[y_final.size()];	
-		double z_array_final[z_final.size()];
-
-		copy(x_final.begin(), x_final.end(), x_array_final);	
-		copy(y_final.begin(), y_final.end(), y_array_final);	
-		copy(z_final.begin(), z_final.end(), z_array_final);
-
-		for(int i = 0; i < x_final.size(); i++){
-			if(x_array_final[i] == x[0]){
-				local_origin[0] = i;
-			} 
-		}
-		for(int i = 0; i < y_final.size(); i++){
-			if(y_array_final[i] == y[0]){
-				local_origin[1] = i;
-			} 
-		}
-		for(int i = 0; i < z_final.size(); i++){
-			if(z_array_final[i] == z[0]){
-				local_origin[2] = i;
-			} 
-		}
-		stringstream ss;
-                ss << local_origin[0] << "," << local_origin[1] << "," << local_origin[2];
-                string o = ss.str();
-                orig = new char[o.length() + 1];
-	        strcpy(orig, o.c_str());
 			
 	/*
  * 		TODO: remove duplicates of the x_array, z_array, y_array
@@ -482,14 +382,17 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
                         if(dimensions.has_child("i")){
                                 int d = dimensions["i"].as_int32();
                                 local_dim[0] = d;
+				cell_l_dim[0] = d - 1;
                         }
                         if(dimensions.has_child("j")){
                                 int d = dimensions["j"].as_int32();
                                 local_dim[1] = d;
+				cell_l_dim[1] = d - 1;
                         }
                         if(dimensions.has_child("k")){
                                 int d = dimensions["k"].as_int32();
                                 local_dim[2] = d;
+				cell_l_dim[2] = d - 1;
                         }
                         sprintf(dims, "%d,%d,%d", local_dim[0],local_dim[1],local_dim[2]);
 		}
@@ -498,28 +401,10 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
                         sprintf(cell_local_dims, "%d,%d,%d", cell_l_dim[0],cell_l_dim[1],cell_l_dim[2]);
                 	cout <<"rank: " << m_rank <<  " Dimensions Not Provided, Using Local Dims: " << dims << endl;
 		}
-		char x_size[1], y_size[1], z_size[1];
-		sprintf(x_size, "%d", x_final.size());
-		sprintf(y_size, "%d", y_final.size());
-		sprintf(z_size, "%d", z_final.size());
                 std::string type = "rectilinearmesh";
                 var_mesh = type;
                 adios_define_mesh_timevarying ("no", m_adios_group, type.c_str());
-                if(m_rank == 0){
-                      	int64_t x_id = adios_define_var (m_adios_group, "coords_x","", adios_double, x_size,x_size,"");
-                        adios_set_transform (x_id, "none");
-                        adios_write_byid(m_adios_file, x_id, (void *)x_array_final);
-                      	
-			int64_t y_id = adios_define_var (m_adios_group, "coords_y","", adios_double, y_size,y_size,"");
-                        adios_set_transform (y_id, "none");
-                        adios_write_byid(m_adios_file, y_id, (void *)y_array_final);
-                    	
-			int64_t z_id = adios_define_var (m_adios_group, "coords_z","", adios_double, z_size,z_size,"");
-                       	adios_set_transform (z_id, "none");
-                       	adios_write_byid(m_adios_file, z_id, (void *)z_array_final);
-			
-			adios_define_mesh_rectilinear(global_dim, "coords_x,coords_y,coords_z", 0, m_adios_group, type.c_str());
-        	}
+		adios_define_mesh_rectilinear(dims, "coords_x,coords_y,coords_z", 0, m_adios_group, type.c_str());
 	}
          else   
                 std::cout << "coordset type " << coordset_type <<std::endl;
@@ -538,16 +423,16 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
                     if(fld.has_child("association")){
                         std::string association = fld["association"].as_string();
                         if(association == "vertex"){
-                    		int64_t var_id = adios_define_var (m_adios_group, field_name.c_str(),"", adios_double, dims ,global_dim, orig);
-		    		cout << "rank: " << m_rank << " ldim: " << dims << " gdim: " << global_dim << " lorigin: " << orig<<endl;
+                    		int64_t var_id = adios_define_var (m_adios_group, field_name.c_str(),"", adios_double, dims ,"","");
+		    		cout << "rank: " << m_rank << " ldim: " << dims <<endl;
 		    		adios_define_attribute(m_adios_group, "field_name", "", adios_string, field_name.c_str(),"");
                     		adios_define_var_mesh(m_adios_group, field_name.c_str(),var_mesh.c_str());
                                 std::string assoc = "point";
                                 adios_define_var_centering(m_adios_group, field_name.c_str(), assoc.c_str());
                         }
                         else{
-                    		int64_t var_id = adios_define_var (m_adios_group, field_name.c_str(),"", adios_double, cell_local_dims ,cell_global_dim, orig);
-		    		cout << "rank: " << m_rank << " ldim: " << cell_local_dims << " gdim: " << cell_global_dim << " lorigin: " << orig<<endl;
+                    		int64_t var_id = adios_define_var (m_adios_group, field_name.c_str(),"", adios_double, cell_local_dims ,"", "");
+		    		cout << "rank: " << m_rank << " ldim: " << cell_local_dims <<endl;
 		    		adios_define_attribute(m_adios_group, "field_name", "", adios_string, field_name.c_str(),"");
                     		adios_define_var_mesh(m_adios_group, field_name.c_str(),var_mesh.c_str());
                                 std::string assoc = "cell";
