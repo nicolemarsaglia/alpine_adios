@@ -164,13 +164,14 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
     int par_size;
     MPI_Comm_size(m_mpi_comm, &par_size);
     adios_declare_group (&m_adios_group,"test_data", "iter", adios_stat_default);
-    //adios_select_method (m_adios_group, "DATASPACES", "", "");
-    adios_select_method (m_adios_group, "MPI", "", "");
+    adios_select_method (m_adios_group, "DATASPACES", "", "");
+    //adios_select_method (m_adios_group, "MPI", "", "");
    
     
     
-    char        filename [100];    
-    strcpy (filename, options["output_path"].as_char8_str());
+    char        filename [100];  
+    string f = "/ccs/home/nic8504/rhea/file.bp";  
+    strcpy (filename, f.c_str());
     adios_open (&m_adios_file, "test_data", filename, "w", m_mpi_comm);
     adios_define_schema_version(m_adios_group, "1.1"); 
     std::string var_mesh = "";
@@ -187,7 +188,6 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
     char global_origin[3] = "";
     int g_dim[3];
     double g_origin[3]; 
-
     //space mesh, local origin, and local dim are local, correspond to the local char arrays above. 
     double space_mesh[3];
     double local_origin[3];
@@ -259,8 +259,6 @@ AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &option
 			else
 				cell_ss << local_origin[2];
 			string cell_o = cell_ss.str();
-			cell_orig = new char[cell_o.length() + 1];
-			strcpy(cell_orig, cell_o.c_str());
 			//sprintf(orig, "%d,%d,%d", (int)local_origin[0],(int)local_origin[1],(int)local_origin[2]);
 		}
               if(coordset.has_child("dims")){
