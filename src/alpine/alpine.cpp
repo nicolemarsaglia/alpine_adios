@@ -151,6 +151,9 @@ Alpine::Open(const conduit::Node &options)
     #else
         ALPINE_ERROR("Alpine was not built with HDF5 support");
     #endif
+    }
+    else if(pipeline_type == "adios")
+    {
     #if defined(ALPINE_ADIOS_ENABLED)
         m_pipeline = new AdiosPipeline();
     #else
