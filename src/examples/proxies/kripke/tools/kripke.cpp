@@ -7,6 +7,8 @@
 #include<mpi.h>
 #include<algorithm>
 #include<string>
+#include <unistd.h>
+#include <sys/stat.h>
 #include<sstream>
 #include <adios.h>
 #include <adios_types.h>
@@ -198,35 +200,30 @@ void runPoint(int point, int num_tasks, int num_threads, Input_Variables &input_
 }
 
 int main(int argc, char **argv) {
-    printf("%d\n", __LINE__);
   /*
    * Initialize MPI
    */
   int ierr;
   MPI_Init(&argc, &argv);
-    printf("%d\n", __LINE__);
   int myid;
   MPI_Comm_rank(MPI_COMM_WORLD, &myid);
   int num_tasks;
   MPI_Comm_size(MPI_COMM_WORLD, &num_tasks);
 //ADIOS STAGINGi
-    printf("%d\n", __LINE__);
     int64_t     m_adios_group;
-    printf("%d\n", __LINE__);
     ierr = adios_init_noxml (MPI_COMM_WORLD);
-    printf( "error: %d\n", ierr);
-    printf("%d\n", __LINE__);
     adios_set_max_buffer_size (100);
-    printf("%d\n", __LINE__);
     int par_size;
-    printf("%d\n", __LINE__);
    ierr = adios_declare_group (&m_adios_group,"test_data", "", adios_stat_default);
     printf( "error: %d\n", ierr);
     printf("%d\n", __LINE__);
-    adios_select_method (m_adios_group, "MPI", "", "");
-//ierr =    adios_select_method (m_adios_group, "DATASPACES", "verbose=4", "");
+    struct stat sb;    
+    if(stat("conf", &sb) == -1)
+	printf("No FILE");
+//    adios_select_method (m_adios_group, "MPI", "", "");
+ierr =    adios_select_method (m_adios_group, "DATASPACES", "verbose=4", "");
     printf( "error: %d\n", ierr);
-    printf("%d\n", __LINE__);
+    printf("%d End of Adios Staging\n", __LINE__);
 //ADIOS STAGING END
   if (myid == 0) {
     /* Print out a banner message along with a version number. */

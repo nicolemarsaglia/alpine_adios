@@ -158,27 +158,21 @@ void
 AdiosPipeline::IOManager::SaveToAdiosFormat(const Node &data, const Node &options)
 {
 #ifdef PARALLEL
-    cout << "We here"<<endl;
 
     adios_init_noxml (m_mpi_comm);
     adios_set_max_buffer_size (10);
-cerr << __LINE__<< endl;
     int par_size;
     MPI_Comm_size(m_mpi_comm, &par_size);
-cout << __LINE__<< endl;
-cerr << __LINE__<< endl;
     adios_declare_group (&m_adios_group,"test_data", "iter", adios_stat_default);
-cout << __LINE__<< endl;
-cerr << __LINE__<< endl;
-    adios_select_method (m_adios_group, "DATASPACES", "", "");
-cout << __LINE__<< endl;
-cerr << __LINE__<< endl;
-    //adios_select_method (m_adios_group, "MPI", "", "");
+   // adios_select_method (m_adios_group, "DATASPACES", "", "");
+    adios_select_method (m_adios_group, "MPI", "", "");
    
     
     
     char        filename [100];  
-    string f = "/ccs/home/nic8504/rhea/file.bp";  
+   //STAGING 
+    string f = "file.bp"; 
+   //string f = options["render_options/file_name"].as_string(); 
     strcpy (filename, f.c_str());
     adios_open (&m_adios_file, "test_data", filename, "w", m_mpi_comm);
     adios_define_schema_version(m_adios_group, "1.1"); 
@@ -439,7 +433,6 @@ cerr << __LINE__<< endl;
 	const Node &renderer = options["render_options"];
 	std::string render = renderer["renderer"].as_string();
 	adios_define_attribute(m_adios_group, "render", "", adios_string, render.c_str(),"");
-	}   
         if (render == "isosurface"){
                 const Node &iso  = renderer["values"];
                 DataType iso_val = iso.dtype();

@@ -10,6 +10,7 @@
 #include <vector>
 #include <stdio.h>
 
+#include <adios.h>
 /*--------------------------------------------------------------------------
  *--------------------------------------------------------------------------
  * Begin Alpine Integration
@@ -33,7 +34,7 @@ void writeAlpineData(Alpine &sman, Grid_Data *grid_data, int timeStep)
   int myid;
   MPI_Comm_rank(MPI_COMM_WORLD, &myid);
   int num_zone_sets = grid_data->zs_to_sdomid.size();
-
+   
   // TODO: we don't support domain overloading ... 
   for(int sdom_idx = 0; sdom_idx < grid_data->num_zone_sets; ++sdom_idx)
   {
@@ -120,7 +121,8 @@ void writeAlpineData(Alpine &sman, Grid_Data *grid_data, int timeStep)
     add["render_options/file_name"] = filename;
     add["render_options/width"] = 1024;
     add["render_options/height"] = 1024;
-    add["render_options/renderer"] = "raytrace";
+    add["render_options/renderer"] = "isosurface";
+    add["render_options/values"] = 3.0;
     sman.Publish(data);
     sman.Execute(actions);
 }
