@@ -93,7 +93,8 @@ void writeAlpineData(Alpine &sman, Grid_Data *grid_data, int timeStep)
    {
        CONDUIT_INFO("blueprint verify succeeded");
    }
-   
+   //VTKm
+   /*
   //create some action
     conduit::Node actions;
     conduit::Node &add = actions.append();
@@ -108,7 +109,18 @@ void writeAlpineData(Alpine &sman, Grid_Data *grid_data, int timeStep)
     add["render_options/camera/zoom"] = (float64) 1.0;
     conduit::Node &draw = actions.append();
     draw["action"] = "draw_plots";
-
+*/
+  //create some action
+    conduit::Node actions;
+    conduit::Node &add = actions.append();
+    add["action"] = "save";
+    add["field_name"] = "phi";
+    char filename[50];
+    sprintf(filename, "kripke_%04d.bp", timeStep);
+    add["render_options/file_name"] = filename;
+    add["render_options/width"] = 1024;
+    add["render_options/height"] = 1024;
+    add["render_options/renderer"] = "raytrace";
     sman.Publish(data);
     sman.Execute(actions);
 }
@@ -120,8 +132,9 @@ int SweepSolver (Grid_Data *grid_data, bool block_jacobi)
 {
   conduit::Node alpine_opts;
   alpine_opts["mpi_comm"] = MPI_Comm_c2f(MPI_COMM_WORLD);
-  alpine_opts["pipeline/type"] = "vtkm";
-  alpine_opts["pipeline/backend"] = "serial";
+ // alpine_opts["pipeline/type"] = "vtkm";
+ // alpine_opts["pipeline/backend"] = "serial";
+  alpine_opts["pipeline/type"] = "adios";
 
   Alpine sman;
   sman.Open(alpine_opts);
